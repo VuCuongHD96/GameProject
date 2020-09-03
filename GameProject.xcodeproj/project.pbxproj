@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,12 @@
 		4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91D62500D344008E73C0 /* CategoryViewController.swift */; };
 		4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91D82500D35A008E73C0 /* GameViewController.swift */; };
 		4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */; };
+		4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */; };
+		51EDC968D3015508540EF0B5 /* Pods_GameProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.release.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.release.xcconfig"; sourceTree = "<group>"; };
 		4C5F91BB2500CBDE008E73C0 /* GameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		4C5F91D62500D344008E73C0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		4C5F91D82500D35A008E73C0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A517072E4C3C2573D1E8FAE /* Pods-GameProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.debug.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EDC968D3015508540EF0B5 /* Pods_GameProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2615D3ACFD310EC2A0D4A72C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C5F91B22500CBDE008E73C0 = {
 			isa = PBXGroup;
 			children = (
 				4C5F91BD2500CBDE008E73C0 /* GameProject */,
 				4C5F91BC2500CBDE008E73C0 /* Products */,
+				DCE6A514607D8FC9EBDC77A6 /* Pods */,
+				2615D3ACFD310EC2A0D4A72C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +118,21 @@
 		4C5F91D52500D27B008E73C0 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */,
 				4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */,
 				4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */,
 				4C5F91C72500CBE0008E73C0 /* Assets.xcassets */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		DCE6A514607D8FC9EBDC77A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A517072E4C3C2573D1E8FAE /* Pods-GameProject.debug.xcconfig */,
+				47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C5F91CF2500CBE0008E73C0 /* Build configuration list for PBXNativeTarget "GameProject" */;
 			buildPhases = (
+				0D48C1A162D3292C2A69D025 /* [CP] Check Pods Manifest.lock */,
 				4C5F91B72500CBDE008E73C0 /* Sources */,
 				4C5F91B82500CBDE008E73C0 /* Frameworks */,
 				4C5F91B92500CBDE008E73C0 /* Resources */,
+				6AD34E24FF8BB70F07D27756 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,12 +196,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5F91CB2500CBE0008E73C0 /* LaunchScreen.storyboard in Resources */,
+				4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */,
 				4C5F91C82500CBE0008E73C0 /* Assets.xcassets in Resources */,
 				4C5F91C62500CBDE008E73C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D48C1A162D3292C2A69D025 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AD34E24FF8BB70F07D27756 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameProject/Pods-GameProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GameProject/Pods-GameProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameProject/Pods-GameProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C5F91B72500CBDE008E73C0 /* Sources */ = {
@@ -326,6 +398,7 @@
 		};
 		4C5F91D02500CBE0008E73C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A517072E4C3C2573D1E8FAE /* Pods-GameProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,6 +416,7 @@
 		};
 		4C5F91D12500CBE0008E73C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
