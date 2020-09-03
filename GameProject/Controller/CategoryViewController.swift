@@ -7,10 +7,26 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 final class CategoryViewController: UIViewController {
-
+    
+    //  MARK:   - Properties
+    var ref: DatabaseReference!
+    
+    //  MARK:   - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchData()
+    }
+    
+    //  MARK:   - Setup Data
+    private func fetchData() {
+        ref = Database.database().reference()
+        ref.child("1iaMdC7zOZDlle8jkCxed-N5fegvGdNT1stzZphOcV6s")//.child("LichSu")
+            .observeSingleEvent(of: .value) { (snapshot) in
+                let postDict = snapshot.value as? [String : Any] ?? [:]
+                print(postDict.keys)
+        }
     }
 }

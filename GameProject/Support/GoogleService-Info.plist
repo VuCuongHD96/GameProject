@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>876601697477-1g020d6pet94m6tn6qbrcj15iu649cs2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.876601697477-1g020d6pet94m6tn6qbrcj15iu649cs2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDSI3mfGRiCgLjUXGf5RZ48cQWIdTnbb6U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>876601697477</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>IOS.GameProject</string>
+	<key>PROJECT_ID</key>
+	<string>gameproject-db673</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gameproject-db673.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:876601697477:ios:89ed12fe3f22ec6f0e7cac</string>
+	<key>DATABASE_URL</key>
+	<string>https://gameproject-db673.firebaseio.com</string>
+</dict>
+</plist>
