@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */; };
 		4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */; };
-		4C5F91C32500CBDE008E73C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C22500CBDE008E73C0 /* ViewController.swift */; };
+		4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C22500CBDE008E73C0 /* LoginViewController.swift */; };
 		4C5F91C62500CBDE008E73C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91C42500CBDE008E73C0 /* Main.storyboard */; };
 		4C5F91C82500CBE0008E73C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91C72500CBE0008E73C0 /* Assets.xcassets */; };
 		4C5F91CB2500CBE0008E73C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91C92500CBE0008E73C0 /* LaunchScreen.storyboard */; };
+		4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91D62500D344008E73C0 /* CategoryViewController.swift */; };
+		4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91D82500D35A008E73C0 /* GameViewController.swift */; };
+		4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C5F91BB2500CBDE008E73C0 /* GameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4C5F91C22500CBDE008E73C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C5F91C22500CBDE008E73C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4C5F91C52500CBDE008E73C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C5F91C72500CBE0008E73C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5F91CA2500CBE0008E73C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C5F91CC2500CBE0008E73C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C5F91D62500D344008E73C0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		4C5F91D82500D35A008E73C0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		4C5F91BD2500CBDE008E73C0 /* GameProject */ = {
 			isa = PBXGroup;
 			children = (
-				4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */,
-				4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */,
-				4C5F91C22500CBDE008E73C0 /* ViewController.swift */,
-				4C5F91C42500CBDE008E73C0 /* Main.storyboard */,
-				4C5F91C72500CBE0008E73C0 /* Assets.xcassets */,
-				4C5F91C92500CBE0008E73C0 /* LaunchScreen.storyboard */,
+				4C5F91D42500D274008E73C0 /* Model */,
+				4C5F91D32500D26F008E73C0 /* View */,
+				4C5F91D22500D262008E73C0 /* Controller */,
+				4C5F91D52500D27B008E73C0 /* Support */,
 				4C5F91CC2500CBE0008E73C0 /* Info.plist */,
 			);
 			path = GameProject;
+			sourceTree = "<group>";
+		};
+		4C5F91D22500D262008E73C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C5F91C22500CBDE008E73C0 /* LoginViewController.swift */,
+				4C5F91D62500D344008E73C0 /* CategoryViewController.swift */,
+				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
+				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4C5F91D32500D26F008E73C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C5F91C92500CBE0008E73C0 /* LaunchScreen.storyboard */,
+				4C5F91C42500CBDE008E73C0 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C5F91D42500D274008E73C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C5F91D52500D27B008E73C0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */,
+				4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */,
+				4C5F91C72500CBE0008E73C0 /* Assets.xcassets */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C5F91C32500CBDE008E73C0 /* ViewController.swift in Sources */,
+				4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */,
+				4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */,
+				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
 				4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */,
 				4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */,
+				4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
