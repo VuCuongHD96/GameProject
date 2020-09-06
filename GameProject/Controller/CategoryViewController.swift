@@ -25,6 +25,7 @@ final class CategoryViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var dataSnapshotArray = [DataSnapshot]()
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
@@ -38,9 +39,11 @@ final class CategoryViewController: UIViewController {
         ref = Database.database().reference()
         ref.child(FirebaseChild.childKey)
             .observeSingleEvent(of: .value) { (snapshot) in
-                let postDict = snapshot.value as? [String : Any] ?? [:]
-                self.categoryArray = Array(postDict.keys)
-                print(postDict)
+                let categoryDict = snapshot.value as? [String : Any] ?? [:]
+                self.categoryArray = Array(categoryDict.keys)
+                for case let childOne as DataSnapshot in snapshot.children {
+                    self.dataSnapshotArray.append(childOne)
+                }
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -56,7 +59,7 @@ extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellID) else {
             return UITableViewCell()
@@ -69,6 +72,11 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //  TODO:   - Navigate to Game Screen
+        guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
+            return
+        }
+        gameScreen.category = categoryArray[indexPath.row]
+        gameScreen.dataSnapShot = dataSnapshotArray[indexPath.row]
+        navigationController?.pushViewController(gameScreen, animated: true)
     }
 }
