@@ -16,11 +16,12 @@ struct Question {
     var c: String
     var d: String
     var question: String
-    var answer: String
+    var answer: Int
+    var chosenCorrectAnswer = false
     
     init(_ dict: [String : Any]) {
         self.question = dict["Question"] as? String ?? ""
-        self.answer = dict["Answer"] as? String ?? ""
+        self.answer = dict["Answer"] as? Int ?? 0
         self.id = dict["id"] as? Int ?? 0
         self.a = dict["A"] as? String ?? ""
         self.b = dict["B"] as? String ?? ""

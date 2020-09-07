@@ -16,11 +16,11 @@ class AnswerTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        hideCheckImage()
+        invisibleCheckImage()
     }
     
     //  MARK: - Setup Data
-    func setContent(data: Question, row: Int) {
+    func setContent(data: Question, for row: Int) {
         var answer = ""
         switch row {
         case 0:
@@ -38,6 +38,10 @@ class AnswerTableViewCell: UITableViewCell {
     }
     
     //  MARK: - Setup View
+    func invisibleCheckImage() {
+        checkImage.isHidden = true
+    }
+    
     func hideCheckImage() {
         UIView.animate(withDuration: 0.5) {
             self.checkImage.transform = .init(translationX: -50, y: 0)
@@ -46,6 +50,7 @@ class AnswerTableViewCell: UITableViewCell {
     
     func showCheckImage() {
         UIView.animate(withDuration: 0.5) {
+            self.checkImage.isHidden = false
             self.checkImage.transform = .identity
         }
     }

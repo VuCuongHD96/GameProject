@@ -12,7 +12,7 @@ import FirebaseDatabase
 final class GameViewController: UIViewController {
     
     //  MARK: - Outlet
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     //  MARK: - Properties
     struct Constant {
@@ -26,8 +26,7 @@ final class GameViewController: UIViewController {
     var timerCount: Timer!
     var clockBarButtonItem = UIBarButtonItem()
     var timeBarButtonItem = UIBarButtonItem()
-    var answerSelectedSection = [Int]()
-    var dict = [Int : AnswerTableViewCell]()
+    var answerDict = [Int : AnswerTableViewCell]()
     
     //  MARK: - Lyfe Cycle
     override func viewDidLoad() {
@@ -42,8 +41,6 @@ final class GameViewController: UIViewController {
         navigationItem.title = category
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
         let nibName = UINib(nibName: Constant.cellIndentifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: Constant.cellIndentifier)
         for case let child as DataSnapshot in dataSnapShot.children {
@@ -79,7 +76,11 @@ final class GameViewController: UIViewController {
     
     //  MARK: - Action
     @IBAction func submitAction(_ sender: Any) {
-        //  To Do: - Go to Score Screen
+        let result = questionArray.filter {
+            $0.chosenCorrectAnswer == true
+        }
+        let score = result.count
+        //  TO DO: - Go to Score Screen
     }
 }
 
@@ -95,7 +96,12 @@ extension GameViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellIndentifier) as? AnswerTableViewCell else {
             return UITableViewCell()
         }
-        cell.setContent(data: question, row: row)
+        cell.setContent(data: question, for: row)
+        if answerDict[section] == cell {
+            cell.showCheckImage()
+        } else {
+            cell.invisibleCheckImage()
+        }
         return cell
     }
     
@@ -118,14 +124,17 @@ extension GameViewController: UITableViewDelegate {
             return
         }
         let section = indexPath.section
-        if dict.keys.contains(section) {
-            dict[section]?.hideCheckImage()
+        if answerDict.keys.contains(section) {
+            answerDict[section]?.hideCheckImage()
         }
         cell.showCheckImage()
-        dict[section] = cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        answerDict[section] = cell
+        let row = indexPath.row
+        let trueAnswer = questionArray[section].answer
+        if row == trueAnswer {
+            questionArray[section].chosenCorrectAnswer = true
+        } else {
+            questionArray[section].chosenCorrectAnswer = false
+        }
     }
 }

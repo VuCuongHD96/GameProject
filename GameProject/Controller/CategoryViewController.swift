@@ -30,12 +30,14 @@ final class CategoryViewController: UIViewController {
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        setupData()
         setupViews()
     }
     
     //  MARK:   - Setup Data
-    private func fetchData() {
+    private func setupData() {
+        tableView.dataSource = self
+        tableView.delegate = self
         ref = Database.database().reference()
         ref.child(FirebaseChild.childKey)
             .observeSingleEvent(of: .value) { (snapshot) in
@@ -45,8 +47,6 @@ final class CategoryViewController: UIViewController {
                     self.dataSnapshotArray.append(childOne)
                 }
         }
-        tableView.dataSource = self
-        tableView.delegate = self
     }
     
     //  MARK:   - Setup Views
@@ -72,6 +72,7 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print(indexPath)
         guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
             return
         }
