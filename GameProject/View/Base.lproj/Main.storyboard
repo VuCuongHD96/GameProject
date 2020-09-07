@@ -63,6 +63,50 @@
             </objects>
             <point key="canvasLocation" x="1564" y="154.27286356821591"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="Svb-z3-p95">
+            <objects>
+                <viewController storyboardIdentifier="gameScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cvN-8Q-Tb7" customClass="GameViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9RI-su-9AD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-ab-upS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-6F-8BB">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MTP-Ed-kzy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="xkA-X5-jt3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vih-UR-8Iu" firstAttribute="trailing" secondItem="MHM-6F-8BB" secondAttribute="trailing" id="74u-t9-9Tg"/>
+                            <constraint firstItem="TjX-ab-upS" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="IZX-F9-dyt"/>
+                            <constraint firstItem="vih-UR-8Iu" firstAttribute="bottom" secondItem="MHM-6F-8BB" secondAttribute="bottom" id="LFg-fz-bdZ"/>
+                            <constraint firstItem="MHM-6F-8BB" firstAttribute="top" secondItem="TjX-ab-upS" secondAttribute="bottom" id="Sav-5l-6OA"/>
+                            <constraint firstItem="vih-UR-8Iu" firstAttribute="trailing" secondItem="TjX-ab-upS" secondAttribute="trailing" id="bWG-Bb-pwR"/>
+                            <constraint firstItem="TjX-ab-upS" firstAttribute="top" secondItem="vih-UR-8Iu" secondAttribute="top" id="lin-EL-jVx"/>
+                            <constraint firstItem="MHM-6F-8BB" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="raQ-zD-One"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vih-UR-8Iu"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="TjX-ab-upS" id="U35-aH-LMb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eXT-sm-lTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279" y="154"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZK6-e1-RPM">
             <objects>
