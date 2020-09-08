@@ -28,27 +28,32 @@ final class LoginViewController: UIViewController {
         setupData()
         setupViews()
     }
+    
     @IBAction func clickLoginFB(_ sender: Any) {
         loginFace()
     }
-    func loginFace(){
+    
+    func loginFace() {
         let login = LoginManager()
-        login.logIn(permissions: [.publicProfile, .email, .userFriends], viewController: self){
+        login.logIn(permissions: [.publicProfile, .email, .userFriends], viewController: self) {
             loginResult in
-            switch loginResult{
-            case .failed(let error):
+            switch loginResult {
+            case .failed(_):
                 print("Log in failed")
-            case .success(granted: let granted, declined: let declined, token: let token):
+            case .success(granted: _, declined: _, token: _):
                 print("Logged In")
                 self.getData()
-                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "categoryScreen")as!CategoryViewController
+                guard let vc = self.storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
+                    return
+                }
                 self.navigationController?.pushViewController(vc, animated: true)
                 case .cancelled:
                 print("User cancelled log in")
             }
         }
     }
-    func getData(){
+    
+    func getData() {
         if ((AccessToken.current) != nil){
                        GraphRequest(graphPath: "me",
                            parameters: ["fields": "id, name"]).start(completionHandler: {
@@ -56,11 +61,10 @@ final class LoginViewController: UIViewController {
                                if error == nil {
                                    let dict = result as! [String : AnyObject]
                                    let picutreDic = dict as NSDictionary
-                                   let idOfUser = picutreDic.object(forKey: "id") as! String
                                    let nameOfUser = picutreDic.object(forKey: "name") as! String
                                }
                                else {
-                                   print(error?.localizedDescription)
+                                print(error?.localizedDescription as Any)
                                }
                            })
                    }
