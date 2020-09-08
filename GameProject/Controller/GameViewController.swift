@@ -55,7 +55,7 @@ final class GameViewController: UIViewController {
     //  MARK: - Setup View
     private func setupViews() {
         Timer.scheduledTimer(withTimeInterval: TimeInterval(timeCouting + 2), repeats: false) { _ in
-            print("Chuyển sang màn Score")
+            self.submitAction((Any).self)
         }
         clockBarButtonItem = UIBarButtonItem(image: UIImage(named: "clock")?.withRenderingMode(.alwaysOriginal),
                                              style: .done, target: nil, action: nil)
@@ -80,7 +80,10 @@ final class GameViewController: UIViewController {
             $0.chosenCorrectAnswer == true
         }
         let score = result.count
-        //  TO DO: - Go to Score Screen
+        let alert = UIAlertController(title: "Kết qủa", message: "Điểm của bạn là \(score)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

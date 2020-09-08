@@ -17,8 +17,9 @@ final class CategoryViewController: UIViewController {
     
     //  MARK:   - Properties
     struct Constant {
-        static let cellID = "categoryCell"
+        static let cellID = "CategoryCell"
         static let navigationTitle = "Category"
+        static let cellHeight: CGFloat = 200
     }
     var ref: DatabaseReference!
     var categoryArray = [String]() {
@@ -39,6 +40,8 @@ final class CategoryViewController: UIViewController {
     private func setupData() {
         tableView.dataSource = self
         tableView.delegate = self
+        let nibName = UINib(nibName: Constant.cellID, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: Constant.cellID)
         ref = Database.database().reference()
         ref.child(FirebaseChild.childKey)
             .observeSingleEvent(of: .value) { (snapshot) in
@@ -70,12 +73,11 @@ extension CategoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellID) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellID) as? CategoryCell else {
             return UITableViewCell()
         }
         let category = categoryArray[indexPath.row]
-        cell.textLabel?.text = category
-        cell.imageView?.image = UIImage(named: category)
+        cell.setContent(data: category)
         return cell
     }
 }
@@ -89,5 +91,9 @@ extension CategoryViewController: UITableViewDelegate {
         gameScreen.category = categoryArray[indexPath.row]
         gameScreen.dataSnapShot = dataSnapshotArray[indexPath.row]
         navigationController?.pushViewController(gameScreen, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constant.cellHeight
     }
 }
