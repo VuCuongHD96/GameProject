@@ -30,6 +30,7 @@ final class CategoryViewController: UIViewController {
     var examMode = ExamMode.see
     var modeButton = UIBarButtonItem()
     var modeImage = UIBarButtonItem()
+    private let refreshControl = UIRefreshControl()
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
@@ -40,10 +41,20 @@ final class CategoryViewController: UIViewController {
     
     //  MARK:   - Setup Data
     private func setupData() {
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
         let nibName = UINib(nibName: Constant.cellID, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: Constant.cellID)
+        fetchData()
+    }
+    
+    private func fetchData() {
         ref = Database.database().reference()
         ref.child(FirebaseChild.childKey)
             .observeSingleEvent(of: .value) { (snapshot) in
@@ -53,6 +64,11 @@ final class CategoryViewController: UIViewController {
                     self.dataSnapshotArray.append(childOne)
                 }
         }
+    }
+    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        fetchData()
+        refreshControl.endRefreshing()
     }
     
     //  MARK:   - Setup Views
@@ -86,6 +102,16 @@ final class CategoryViewController: UIViewController {
                                         style: .done, target: self, action: #selector(changeMode))
         navigationItem.rightBarButtonItems = [modeButton, modeImage]
     }
+    
+    private func gotoGameScreen(_ row: Int) {
+        guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
+            return
+        }
+        gameScreen.category = categoryArray[row]
+        gameScreen.dataSnapShot = dataSnapshotArray[row]
+        gameScreen.examMode = examMode
+        navigationController?.pushViewController(gameScreen, animated: true)
+    }
 }
 
 extension CategoryViewController: UITableViewDataSource {
@@ -105,13 +131,17 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             return
         }
-        gameScreen.category = categoryArray[indexPath.row]
-        gameScreen.dataSnapShot = dataSnapshotArray[indexPath.row]
-        gameScreen.examMode = examMode
-        navigationController?.pushViewController(gameScreen, animated: true)
+        UIView.animate(withDuration: 0.2) {
+            cell.transform = .init(scaleX: 0.6, y: 0.6)
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.transform = .identity
+            }) { (_) in
+                self.gotoGameScreen(indexPath.row)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlV-Rv-RFv">
-                                <rect key="frame" x="60" y="561.5" width="255" height="34"/>
+                                <rect key="frame" x="67.5" y="561.5" width="240" height="44.5"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Login with Facebook">
@@ -44,16 +44,17 @@
                         <constraints>
                             <constraint firstItem="dD3-EI-Vys" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8/3" id="0dM-uc-0Vp"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="2/5" id="156-7R-Muu"/>
-                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="top" secondItem="5T5-dc-ItQ" secondAttribute="bottom" constant="20" id="2vQ-Zf-Ido"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="top" secondItem="5T5-dc-ItQ" secondAttribute="bottom" constant="20" id="1rK-5x-Lsi"/>
                             <constraint firstItem="dD3-EI-Vys" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5VD-aN-a7M"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Iz8-UC-57P"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="width" secondItem="I2V-3I-cwd" secondAttribute="width" multiplier="0.64" id="NMI-ZV-eCM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WlV-Rv-RFv" secondAttribute="trailing" constant="60" id="OwK-fu-Gd1"/>
-                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Qh6-Dx-spW"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVd-sN-1JB"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="centerX" secondItem="5T5-dc-ItQ" secondAttribute="centerX" id="dyq-tD-f9q"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="height" secondItem="5T5-dc-ItQ" secondAttribute="height" id="f0r-OU-wAV"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="top" secondItem="I2V-3I-cwd" secondAttribute="bottom" constant="30" id="hzJ-Xt-hfK"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i75-HG-pUR"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mj3-dV-fiL"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="width" secondItem="5T5-dc-ItQ" secondAttribute="width" id="nZt-7f-APe"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="height" secondItem="I2V-3I-cwd" secondAttribute="height" multiplier="1/6" id="noM-sh-IVz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -117,11 +118,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="54m-Ct-jcT">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="54m-Ct-jcT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="662"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-ab-upS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-6F-8BB">
