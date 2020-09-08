@@ -46,7 +46,7 @@ final class CategoryViewController: UIViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .allEvents)
         tableView.dataSource = self
         tableView.delegate = self
         let nibName = UINib(nibName: Constant.cellID, bundle: nil)
@@ -131,6 +131,7 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             return
         }
