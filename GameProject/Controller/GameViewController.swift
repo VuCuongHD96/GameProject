@@ -5,7 +5,6 @@
 //  Created by Vu Xuan Cuong on 9/3/20.
 //  Copyright © 2020 Vu Xuan Cuong. All rights reserved.
 //
-
 import UIKit
 import FirebaseDatabase
 
@@ -13,11 +12,13 @@ final class GameViewController: UIViewController {
     
     //  MARK: - Outlet
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var submitButton: UIButton!
     
     //  MARK: - Properties
     struct Constant {
         static let numberOfRowInSection = 4
         static let cellIndentifier = "AnswerTableViewCell"
+        static let submitButtonRadius: CGFloat = 10
     }
     var category = ""
     var dataSnapShot = DataSnapshot()
@@ -27,13 +28,14 @@ final class GameViewController: UIViewController {
     var clockBarButtonItem = UIBarButtonItem()
     var timeBarButtonItem = UIBarButtonItem()
     var answerDict = [Int : AnswerTableViewCell]()
+    var examMode = ExamMode.see
     
     //  MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
         setupViews()
-        setupTime()
+        checkMode()
     }
     
     //  MARK: - Setup Data
@@ -54,13 +56,21 @@ final class GameViewController: UIViewController {
     
     //  MARK: - Setup View
     private func setupViews() {
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(timeCouting + 2), repeats: false) { _ in
-            self.submitAction((Any).self)
-        }
         clockBarButtonItem = UIBarButtonItem(image: UIImage(named: "clock")?.withRenderingMode(.alwaysOriginal),
                                              style: .done, target: nil, action: nil)
-        timeBarButtonItem = UIBarButtonItem(title: "Time Left", style: .done, target: nil, action: nil)
-        navigationItem.rightBarButtonItems = [timeBarButtonItem, clockBarButtonItem]
+        submitButton.layer.cornerRadius = Constant.submitButtonRadius
+    }
+    
+    private func checkMode() {
+        switch examMode {
+        case .exam:
+            timeBarButtonItem = UIBarButtonItem(title: "Time Left", style: .done, target: nil, action: nil)
+            navigationItem.rightBarButtonItems = [timeBarButtonItem, clockBarButtonItem]
+            setupTime()
+        case .see:
+            tableView.allowsSelection = false
+            submitButton.isHidden = true
+        }
     }
     
     private func setupTime() {
@@ -70,6 +80,8 @@ final class GameViewController: UIViewController {
             self.timeCouting -= 1
             if self.timeCouting == -1 {
                 self.timerCount.invalidate()
+                self.submitAction((Any).self)
+                self.tableView.allowsSelection = false
             }
         }
     }
@@ -80,10 +92,12 @@ final class GameViewController: UIViewController {
             $0.chosenCorrectAnswer == true
         }
         let score = result.count
-        let alert = UIAlertController(title: "Kết qủa", message: "Điểm của bạn là \(score)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Kết quả", message: "Điểm của bạn là \(score)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+        timerCount.invalidate()
+        tableView.allowsSelection = false
     }
 }
 

@@ -40,6 +40,7 @@ class AnswerTableViewCell: UITableViewCell {
     //  MARK: - Setup View
     func invisibleCheckImage() {
         checkImage.isHidden = true
+        selectionStyle = .none
     }
     
     func hideCheckImage() {
