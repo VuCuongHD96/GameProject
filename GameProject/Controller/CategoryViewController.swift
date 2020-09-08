@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import GoogleSignIn
 
 final class CategoryViewController: UIViewController {
     
@@ -52,6 +53,14 @@ final class CategoryViewController: UIViewController {
     //  MARK:   - Setup Views
     private func setupViews() {
         navigationItem.title = Constant.navigationTitle
+        let logoutImage = UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal),
+                                          style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = logoutImage
+    }
+    
+    @objc private func logout() {
+        GIDSignIn.sharedInstance()?.signOut()
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -66,6 +75,7 @@ extension CategoryViewController: UITableViewDataSource {
         }
         let category = categoryArray[indexPath.row]
         cell.textLabel?.text = category
+        cell.imageView?.image = UIImage(named: category)
         return cell
     }
 }

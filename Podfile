@@ -9,5 +9,7 @@ target 'GameProject' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'FBSDKLoginKit'
+pod 'GoogleSignIn'
 
 end
