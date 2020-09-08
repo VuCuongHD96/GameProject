@@ -31,7 +31,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>650063638960296</string>
+				<string>fb743406216217576</string>
 			</array>
 		</dict>
 	</array>
@@ -79,7 +79,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
 
     <key>CFBundleURLTypes</key> <array> <dict> <key>CFBundleURLSchemes</key> <array> <string>fb743406216217576</string> </array> </dict> </array> <key>FacebookAppID</key> <string>743406216217576</string> <key>FacebookDisplayName</key> <string>Game</string>
 

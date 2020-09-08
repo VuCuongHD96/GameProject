@@ -14,7 +14,7 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Outlet
     @IBOutlet private weak var googleSignInButton: GIDSignInButton!
-    @IBOutlet weak var loginFB: UIButton!
+    @IBOutlet private weak var loginFB: UIButton!
     
     // MARK: - Properties
     struct Constant {
