@@ -28,14 +28,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlV-Rv-RFv">
+                                <rect key="frame" x="60" y="561.5" width="255" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickLoginFB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pQz-rA-9N5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96349339219514796" green="0.96788396901682727" blue="0.98105569948186533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dD3-EI-Vys" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8/3" id="0dM-uc-0Vp"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="2/5" id="156-7R-Muu"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="top" secondItem="5T5-dc-ItQ" secondAttribute="bottom" constant="20" id="2vQ-Zf-Ido"/>
                             <constraint firstItem="dD3-EI-Vys" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5VD-aN-a7M"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Iz8-UC-57P"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="width" secondItem="I2V-3I-cwd" secondAttribute="width" multiplier="0.64" id="NMI-ZV-eCM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WlV-Rv-RFv" secondAttribute="trailing" constant="60" id="OwK-fu-Gd1"/>
+                            <constraint firstItem="WlV-Rv-RFv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Qh6-Dx-spW"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZVd-sN-1JB"/>
                             <constraint firstItem="5T5-dc-ItQ" firstAttribute="top" secondItem="I2V-3I-cwd" secondAttribute="bottom" constant="30" id="hzJ-Xt-hfK"/>
                             <constraint firstItem="I2V-3I-cwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i75-HG-pUR"/>
@@ -47,6 +61,7 @@
                     <navigationItem key="navigationItem" id="QEX-J8-Bzp"/>
                     <connections>
                         <outlet property="googleSignInButton" destination="5T5-dc-ItQ" id="qql-3O-lkR"/>
+                        <outlet property="loginFB" destination="WlV-Rv-RFv" id="0mH-fs-I5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

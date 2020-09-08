@@ -8,11 +8,13 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
 
 final class LoginViewController: UIViewController {
 
     // MARK: - Outlet
     @IBOutlet private weak var googleSignInButton: GIDSignInButton!
+    @IBOutlet private weak var loginFB: UIButton!
     
     // MARK: - Properties
     struct Constant {
@@ -27,6 +29,50 @@ final class LoginViewController: UIViewController {
         setupViews()
     }
     
+    @IBAction func clickLoginFB(_ sender: Any) {
+        loginFace()
+    }
+    
+    func loginFace() {
+        let login = LoginManager()
+        login.logOut()
+        login.logIn(permissions: [.publicProfile, .email, .userFriends], viewController: self) {
+            loginResult in
+            switch loginResult {
+            case .failed(_):
+                print("Log in failed")
+            case .success(granted: _, declined: _, token: _):
+                print("Logged In")
+                self.getData()
+                guard let vc = self.storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
+                    return
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+                case .cancelled:
+                print("User cancelled log in")
+            }
+        }
+    }
+    
+    func getData() {
+        if ((AccessToken.current) != nil){
+                       GraphRequest(graphPath: "me",
+                           parameters: ["fields": "id, name"]).start(completionHandler: {
+                               (connection, result , error) -> Void in
+                               if error == nil {
+                                   let dict = result as! [String : AnyObject]
+                                   let picutreDic = dict as NSDictionary
+                                   let nameOfUser = picutreDic.object(forKey: "name") as! String
+                               }
+                               else {
+                                print(error?.localizedDescription as Any)
+                               }
+                           })
+                   }
+                   else {
+                       print("Access Token is nil")
+                   }
+    }
     // MARK: - Setup Data
     private func setupData() {
         GIDSignIn.sharedInstance()?.delegate = self
