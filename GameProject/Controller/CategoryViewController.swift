@@ -40,7 +40,7 @@ final class CategoryViewController: UIViewController {
             .observeSingleEvent(of: .value) { (snapshot) in
                 let postDict = snapshot.value as? [String : Any] ?? [:]
                 self.categoryArray = Array(postDict.keys)
-                print(postDict)
+                //print(postDict)
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -69,6 +69,6 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //  TODO:   - Navigate to Game Screen
+        
     }
 }
