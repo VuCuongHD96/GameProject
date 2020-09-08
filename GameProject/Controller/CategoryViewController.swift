@@ -28,6 +28,9 @@ final class CategoryViewController: UIViewController {
         }
     }
     var dataSnapshotArray = [DataSnapshot]()
+    var examMode = ExamMode.see
+    var modeButton = UIBarButtonItem()
+    var modeImage = UIBarButtonItem()
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
@@ -57,13 +60,32 @@ final class CategoryViewController: UIViewController {
     private func setupViews() {
         navigationItem.title = Constant.navigationTitle
         let logoutImage = UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal),
-                                          style: .done, target: self, action: nil)
+                                          style: .plain, target: self, action: #selector(logout))
         navigationItem.leftBarButtonItem = logoutImage
+        navigationItem.leftBarButtonItem = logoutImage
+        modeButton = UIBarButtonItem(title: "See", style: .done, target: self, action: #selector(changeMode))
+        modeImage = UIBarButtonItem(image: UIImage(named: "eye")?.withRenderingMode(.alwaysOriginal),
+                                        style: .done, target: self, action: #selector(changeMode))
+        navigationItem.rightBarButtonItems = [modeButton, modeImage]
     }
     
     @objc private func logout() {
         GIDSignIn.sharedInstance()?.signOut()
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func changeMode() {
+        switch examMode {
+        case .exam:
+            examMode = .see
+        case .see:
+            examMode = .exam
+        }
+        let rightButtonBars = examMode.getRightButtonBars()
+        modeButton = UIBarButtonItem(title: rightButtonBars.title, style: .done, target: self, action: #selector(changeMode))
+        modeImage = UIBarButtonItem(image: UIImage(named: rightButtonBars.image)?.withRenderingMode(.alwaysOriginal),
+                                        style: .done, target: self, action: #selector(changeMode))
+        navigationItem.rightBarButtonItems = [modeButton, modeImage]
     }
 }
 
@@ -83,13 +105,13 @@ extension CategoryViewController: UITableViewDataSource {
 }
 
 extension CategoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print(indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
             return
         }
         gameScreen.category = categoryArray[indexPath.row]
         gameScreen.dataSnapShot = dataSnapshotArray[indexPath.row]
+        gameScreen.examMode = examMode
         navigationController?.pushViewController(gameScreen, animated: true)
     }
     

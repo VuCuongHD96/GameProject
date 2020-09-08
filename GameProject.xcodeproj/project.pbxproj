@@ -23,6 +23,11 @@
 		4CC113062504FE0C005E139B /* AnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC113042504FE0C005E139B /* AnswerTableViewCell.xib */; };
 		4CD5A41A25072DC6001180CB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5A41825072DC6001180CB /* CategoryCell.swift */; };
 		4CD5A41B25072DC6001180CB /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD5A41925072DC6001180CB /* CategoryCell.xib */; };
+<<<<<<< HEAD
+=======
+		4CD5A41D25075DCE001180CB /* ExamMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5A41C25075DCE001180CB /* ExamMode.swift */; };
+		4CD5A41F25076481001180CB /* RightButtonBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5A41E25076481001180CB /* RightButtonBars.swift */; };
+>>>>>>> Update UI
 		51EDC968D3015508540EF0B5 /* Pods_GameProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +51,11 @@
 		4CC113042504FE0C005E139B /* AnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerTableViewCell.xib; sourceTree = "<group>"; };
 		4CD5A41825072DC6001180CB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		4CD5A41925072DC6001180CB /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		4CD5A41C25075DCE001180CB /* ExamMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamMode.swift; sourceTree = "<group>"; };
+		4CD5A41E25076481001180CB /* RightButtonBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightButtonBars.swift; sourceTree = "<group>"; };
+>>>>>>> Update UI
 		52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A517072E4C3C2573D1E8FAE /* Pods-GameProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.debug.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				10274CD025038D5E003D5442 /* Question.swift */,
+				4CD5A41E25076481001180CB /* RightButtonBars.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4C5F91DF2500F570008E73C0 /* FirebaseChild.swift */,
+				4CD5A41C25075DCE001180CB /* ExamMode.swift */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -307,6 +319,7 @@
 			files = (
 				4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */,
 				10274CD125038D5E003D5442 /* Question.swift in Sources */,
+				4CD5A41F25076481001180CB /* RightButtonBars.swift in Sources */,
 				4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */,
 				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
 				4CC113052504FE0C005E139B /* AnswerTableViewCell.swift in Sources */,
@@ -314,6 +327,10 @@
 				4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */,
 				4C5F91E02500F570008E73C0 /* FirebaseChild.swift in Sources */,
 				4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */,
+<<<<<<< HEAD
+=======
+				4CD5A41D25075DCE001180CB /* ExamMode.swift in Sources */,
+>>>>>>> Update UI
 				4CD5A41A25072DC6001180CB /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

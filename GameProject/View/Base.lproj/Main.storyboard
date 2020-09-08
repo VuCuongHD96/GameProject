@@ -61,15 +61,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EHz-8a-VFQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EHz-8a-VFQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="8QS-3E-TDL">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8QS-3E-TDL" id="5Me-0h-79M">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -102,35 +102,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-ab-upS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-6F-8BB">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n0x-IS-ee5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="662"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-ab-upS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-6F-8BB">
+                                        <rect key="frame" x="37.5" y="612" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.37237671020000002" green="0.51980793479999998" blue="0.89703452589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="JVc-Ie-qmf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="xkA-X5-jt3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MTP-Ed-kzy"/>
+                                    <constraint firstItem="MHM-6F-8BB" firstAttribute="width" secondItem="TjX-ab-upS" secondAttribute="width" multiplier="8/10" id="E0I-rx-TNw"/>
+                                    <constraint firstItem="TjX-ab-upS" firstAttribute="leading" secondItem="n0x-IS-ee5" secondAttribute="leading" id="rHb-WP-Uf6"/>
+                                    <constraint firstAttribute="trailing" secondItem="TjX-ab-upS" secondAttribute="trailing" id="uYZ-Hf-Rm3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="xkA-X5-jt3"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vih-UR-8Iu" firstAttribute="trailing" secondItem="MHM-6F-8BB" secondAttribute="trailing" id="74u-t9-9Tg"/>
-                            <constraint firstItem="TjX-ab-upS" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="IZX-F9-dyt"/>
-                            <constraint firstItem="vih-UR-8Iu" firstAttribute="bottom" secondItem="MHM-6F-8BB" secondAttribute="bottom" id="LFg-fz-bdZ"/>
-                            <constraint firstItem="MHM-6F-8BB" firstAttribute="top" secondItem="TjX-ab-upS" secondAttribute="bottom" id="Sav-5l-6OA"/>
-                            <constraint firstItem="vih-UR-8Iu" firstAttribute="trailing" secondItem="TjX-ab-upS" secondAttribute="trailing" id="bWG-Bb-pwR"/>
-                            <constraint firstItem="TjX-ab-upS" firstAttribute="top" secondItem="vih-UR-8Iu" secondAttribute="top" id="lin-EL-jVx"/>
-                            <constraint firstItem="MHM-6F-8BB" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="raQ-zD-One"/>
+                            <constraint firstItem="n0x-IS-ee5" firstAttribute="top" secondItem="vih-UR-8Iu" secondAttribute="top" id="1Zz-1Q-ohs"/>
+                            <constraint firstItem="n0x-IS-ee5" firstAttribute="trailing" secondItem="vih-UR-8Iu" secondAttribute="trailing" id="L6C-bN-sjZ"/>
+                            <constraint firstItem="vih-UR-8Iu" firstAttribute="bottom" secondItem="n0x-IS-ee5" secondAttribute="bottom" constant="5" id="LoD-ut-ZXZ"/>
+                            <constraint firstItem="n0x-IS-ee5" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="mrW-Tg-PHd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vih-UR-8Iu"/>
                     </view>
                     <connections>
+                        <outlet property="submitButton" destination="MHM-6F-8BB" id="CR8-Ge-Vl7"/>
                         <outlet property="tableView" destination="TjX-ab-upS" id="U35-aH-LMb"/>
                     </connections>
                 </viewController>
