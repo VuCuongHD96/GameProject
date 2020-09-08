@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lịch Sử" translatesAutoresizingMaskIntoConstraints="NO" id="G41-QK-nFD">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="275"/>
+                        <rect key="frame" x="5" y="10" width="440" height="255"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCQ-wD-u9Z">
                         <rect key="frame" x="193" y="122.5" width="64" height="30"/>
@@ -28,11 +28,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="SCQ-wD-u9Z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Ks-8J-xuL"/>
-                    <constraint firstItem="G41-QK-nFD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ddc-BX-vLl"/>
+                    <constraint firstItem="G41-QK-nFD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ddc-BX-vLl"/>
                     <constraint firstItem="SCQ-wD-u9Z" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="hGa-Tt-B2K"/>
-                    <constraint firstItem="G41-QK-nFD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ldG-dD-XNv"/>
-                    <constraint firstAttribute="bottom" secondItem="G41-QK-nFD" secondAttribute="bottom" id="qR7-Oz-vGk"/>
-                    <constraint firstAttribute="trailing" secondItem="G41-QK-nFD" secondAttribute="trailing" id="wLU-4w-ezh"/>
+                    <constraint firstItem="G41-QK-nFD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="ldG-dD-XNv"/>
+                    <constraint firstAttribute="bottom" secondItem="G41-QK-nFD" secondAttribute="bottom" constant="10" id="qR7-Oz-vGk"/>
+                    <constraint firstAttribute="trailing" secondItem="G41-QK-nFD" secondAttribute="trailing" constant="5" id="wLU-4w-ezh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -8,15 +8,31 @@
 
 import UIKit
 
+import UIKit
+
 final class CategoryCell: UITableViewCell {
 
+    // MARK: - Outlet
     @IBOutlet private weak var categoryImage: UIImageView!
     @IBOutlet private weak var categoryLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: - Properties
+    struct Constant {
+        static let categoryImageRadius: CGFloat = 10
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupViews()
+    }
+    
+    // MARK: - Setup Views
+    private func setupViews() {
+        categoryImage.layer.cornerRadius = Constant.categoryImageRadius
+        selectionStyle = .none
+    }
+    
+    // MARK: - Setup Data
     func setContent(data: String) {
         categoryLabel.text = data
         categoryImage.image = UIImage(named: data)
