@@ -19,6 +19,9 @@
 		4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */; };
 		4C5F91E02500F570008E73C0 /* FirebaseChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91DF2500F570008E73C0 /* FirebaseChild.swift */; };
 		51EDC968D3015508540EF0B5 /* Pods_GameProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */; };
+		9B4E672E25078A5F000008A0 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E672C25078A5F000008A0 /* ScoreTableViewCell.swift */; };
+		9B4E672F25078A5F000008A0 /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4E672D25078A5F000008A0 /* ScoreTableViewCell.xib */; };
+		9B4E673125078A74000008A0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E673025078A74000008A0 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		4C5F91DF2500F570008E73C0 /* FirebaseChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChild.swift; sourceTree = "<group>"; };
 		52AD25FA168AABCCF2E3FCB3 /* Pods_GameProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A517072E4C3C2573D1E8FAE /* Pods-GameProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.debug.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.debug.xcconfig"; sourceTree = "<group>"; };
+		9B4E672C25078A5F000008A0 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		9B4E672D25078A5F000008A0 /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
+		9B4E673025078A74000008A0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 				4C5F91D62500D344008E73C0 /* CategoryViewController.swift */,
 				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
 				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
+				9B4E673025078A74000008A0 /* HistoryViewController.swift */,
+				9B4E672C25078A5F000008A0 /* ScoreTableViewCell.swift */,
+				9B4E672D25078A5F000008A0 /* ScoreTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4E672F25078A5F000008A0 /* ScoreTableViewCell.xib in Resources */,
 				4C5F91CB2500CBE0008E73C0 /* LaunchScreen.storyboard in Resources */,
 				4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */,
 				4C5F91C82500CBE0008E73C0 /* Assets.xcassets in Resources */,
@@ -264,9 +274,11 @@
 			files = (
 				4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */,
 				4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */,
+				9B4E672E25078A5F000008A0 /* ScoreTableViewCell.swift in Sources */,
 				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
 				4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */,
 				4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */,
+				9B4E673125078A74000008A0 /* HistoryViewController.swift in Sources */,
 				4C5F91E02500F570008E73C0 /* FirebaseChild.swift in Sources */,
 				4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */,
 			);
