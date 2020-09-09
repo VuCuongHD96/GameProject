@@ -17,15 +17,22 @@ final class ScoreViewController: UIViewController {
     var i = 0
     var timer = Timer()
     var timeNext = 2
+    var userName: String = "thang"
+    var category: String = "toan"
+    var result: String = "pass"
+    var score: Int = 120
+     struct Constant {
+        static let childKey = "Users"
+    }
     
     @IBAction func btnHistory(_ sender: Any) {
         getData()
         runTimer()
     }
-  
+    
     func getData() {
         var myUser = [User]()
-        ref.child("Users").child("hoang").observeSingleEvent(of: .value) { snapshot in
+        ref.child(Constant.childKey).child(userName).observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let user = child.value as? [String : Any] else {
                     return
@@ -37,14 +44,15 @@ final class ScoreViewController: UIViewController {
                 myUser.append(u)
             }
             self.i = myUser.count
-            self.ref.child("Users").child("hoang").child("\(self.i+1)").setValue(["category": "music", "result": "pass", "score": 1000])
+            self.ref.child("Users").child(self.userName).child("\(self.i+1)").setValue(["category": self.category, "result": self.result, "score": self.score])
         }
     }
     
     func nextVC() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let historyVC = sb.instantiateViewController(identifier: "History") as! HistoryViewController
-        self.navigationController?.pushViewController(historyVC, animated: true)    }
+        self.navigationController?.pushViewController(historyVC, animated: true)
+    }
     
     func runTimer(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)

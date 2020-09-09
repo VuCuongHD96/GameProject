@@ -9,24 +9,26 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var lblSTT: UILabel!
+    @IBOutlet private weak var lblSTT: UILabel!
     
-    @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet private weak var lblCategory: UILabel!
     
-    @IBOutlet weak var lblScore: UILabel!
+    @IBOutlet private weak var lblScore: UILabel!
     
-    @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet private weak var lblResult: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    func setContent(data: User, i: Int) {
+        lblResult.text = data.result
+        lblScore.text = String(data.score)
+        lblCategory.text = data.category
+        lblSTT.text = String(i+1)
+    }
 }

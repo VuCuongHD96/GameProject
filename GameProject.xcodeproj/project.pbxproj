@@ -29,6 +29,7 @@
 		9B4EB0B52508749E009EBA38 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */; };
 		9B4EB0B8250875CE009EBA38 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4EB0B6250875CE009EBA38 /* HistoryTableViewCell.swift */; };
 		9B4EB0B9250875CE009EBA38 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4EB0B7250875CE009EBA38 /* HistoryTableViewCell.xib */; };
+		9B4EB0BB250881DB009EBA38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4EB0BA250881DB009EBA38 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		9B4EB0B6250875CE009EBA38 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		9B4EB0B7250875CE009EBA38 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		9B4EB0BA250881DB009EBA38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
 				9B4EB0B6250875CE009EBA38 /* HistoryTableViewCell.swift */,
 				9B4EB0B7250875CE009EBA38 /* HistoryTableViewCell.xib */,
+				9B4EB0BA250881DB009EBA38 /* User.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				9B4EB0B52508749E009EBA38 /* HistoryViewController.swift in Sources */,
 				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
 				4CC113052504FE0C005E139B /* AnswerTableViewCell.swift in Sources */,
+				9B4EB0BB250881DB009EBA38 /* User.swift in Sources */,
 				4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */,
 				4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */,
 				4C5F91E02500F570008E73C0 /* FirebaseChild.swift in Sources */,
