@@ -34,8 +34,9 @@ class HistoryViewController: UIViewController {
                 guard let user = child.value as? [String : Any] else {
                     return
                 }
-                let u = User(user: user)
-                myScore.append(u!)
+                if let u = User(user: user) {
+                    myScore.append(u)
+                }
             }
             self.arrScore = myScore
             self.tableview.reloadData()
@@ -43,7 +44,7 @@ class HistoryViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
         getData()
         tableview.dataSource = self
         tableview.register(UINib(nibName: Constant.historyCell, bundle: nil), forCellReuseIdentifier: Constant.cellIndentifier)
