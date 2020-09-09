@@ -30,6 +30,7 @@ final class GameViewController: UIViewController {
     var timeBarButtonItem = UIBarButtonItem()
     var answerDict = [Int : AnswerTableViewCell]()
     var examMode = ExamMode.see
+    var isSubmit = false
     
     //  MARK: - Lyfe Cycle
     override func viewDidLoad() {
@@ -113,8 +114,17 @@ final class GameViewController: UIViewController {
         }
     }
     
+    private func getCell(_ indexPath: IndexPath) -> AnswerTableViewCell {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AnswerTableViewCell else {
+            return AnswerTableViewCell()
+        }
+        return cell
+    }
+    
     //  MARK: - Action
     @IBAction func submitAction(_ sender: Any) {
+        isSubmit = true
+        tableView.reloadData()
         examMode = .see
         let result = questionArray.filter {
             $0.chosenCorrectAnswer == true
@@ -142,10 +152,17 @@ extension GameViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.setContent(data: question, for: row)
-        if answerDict[section] == cell {
+        if question.answerSelected == row {
             cell.showCheckImage()
         } else {
             cell.invisibleCheckImage()
+        }
+        if isSubmit {
+            if row == question.answer {
+                cell.backgroundColor = .green
+            } else {
+                cell.backgroundColor = .white
+            }
         }
         return cell
     }
@@ -174,21 +191,20 @@ extension GameViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let section = indexPath.section
+        if section != questionArray.count - 1 {
+            let nextIndexPath = IndexPath(row: row, section: section + 1)
+            tableView.scrollToRow(at: nextIndexPath, at: .middle, animated: true)
+        }
         guard let cell = tableView.cellForRow(at: indexPath) as? AnswerTableViewCell else {
             return
         }
-        let section = indexPath.section
+        cell.showCheckImage()
         if answerDict.keys.contains(section) {
             answerDict[section]?.hideCheckImage()
         }
-        cell.showCheckImage()
         answerDict[section] = cell
-        let row = indexPath.row
-        let trueAnswer = questionArray[section].answer
-        if row == trueAnswer {
-            questionArray[section].chosenCorrectAnswer = true
-        } else {
-            questionArray[section].chosenCorrectAnswer = false
-        }
+        questionArray[section].checkAnswer(answerSelected: row)
     }
 }
