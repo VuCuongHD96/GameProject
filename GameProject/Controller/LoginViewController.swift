@@ -11,7 +11,7 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 final class LoginViewController: UIViewController {
-
+    
     // MARK: - Outlet
     @IBOutlet private weak var googleSignInButton: GIDSignInButton!
     @IBOutlet private weak var loginFB: UIButton!
@@ -27,6 +27,13 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupViews()
+        autoLogin()
+    }
+    
+    private func autoLogin() {
+        if UserDefaults.standard.value(forKey: "email") != nil {
+            gotoCategoryScreen()
+        }
     }
     
     @IBAction func clickLoginFB(_ sender: Any) {
@@ -48,23 +55,16 @@ final class LoginViewController: UIViewController {
                     return
                 }
                 self.navigationController?.pushViewController(vc, animated: true)
-                case .cancelled:
+            case .cancelled:
                 print("User cancelled log in")
             }
         }
     }
     
     func getData() {
-        if ((AccessToken.current) != nil){
-            GraphRequest(graphPath: "me",
-                         parameters: ["fields": "id, name"]).start(completionHandler: {
-                            (connection, result , error) -> Void in
-                            if error == nil {
-                                let dict = result as! [String : AnyObject]
-                                let picutreDic = dict as NSDictionary
-                                let nameOfUser = picutreDic.object(forKey: "name") as! String
-                            }
-                            else {
+        if AccessToken.current != nil {
+            GraphRequest(graphPath: "me", parameters: ["fields": "id, name"]).start(completionHandler: {(connection, result , error) -> Void in
+                            if error != nil  {
                                 print(error?.localizedDescription as Any)
                             }
                          })
@@ -73,6 +73,7 @@ final class LoginViewController: UIViewController {
             print("Access Token is nil")
         }
     }
+    
     // MARK: - Setup Data
     private func setupData() {
         GIDSignIn.sharedInstance()?.delegate = self
@@ -84,16 +85,21 @@ final class LoginViewController: UIViewController {
     private func setupViews() {
         navigationItem.title = Constant.navigationTitle
     }
+    
+    private func gotoCategoryScreen() {
+        guard let categoryScreen = storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
+            return
+        }
+        navigationController?.pushViewController(categoryScreen, animated: false)
+    }
 }
 
 extension LoginViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if user != nil {
-            let email = user.profile.email ?? "No Email"            
-        }
-        guard let categoryScreen = storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
+        guard let email = user.profile.email else {
             return
         }
-        navigationController?.pushViewController(categoryScreen, animated: true)
+        UserDefaults.standard.set(email, forKey: "email")
+        gotoCategoryScreen()
     }
 }
