@@ -12,7 +12,7 @@ struct User {
     var result: String
     var score: Int
     var category: String
-    init(result: String, score: Int, category: String) {
+    init(result: String, category: String, score: Int) {
         self.result = result
         self.score = score
         self.category = category

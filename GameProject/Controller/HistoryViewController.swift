@@ -37,7 +37,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 let category = user["category"] as! String
                 let result = user["result"] as! String
                 let score = user["score"] as! Int
-                let u = User(result: result, score: score, category: category)
+                let u = User(result: result, category: category, score: score)
                 myScore.append(u)
             }
             self.arrScore = myScore
