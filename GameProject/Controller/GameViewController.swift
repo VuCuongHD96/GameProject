@@ -19,6 +19,7 @@ final class GameViewController: UIViewController {
         static let numberOfRowInSection = 4
         static let cellIndentifier = "AnswerTableViewCell"
         static let submitButtonRadius: CGFloat = 10
+        static let titleHeaderFontSize = 15
     }
     var category = ""
     var dataSnapShot = DataSnapshot()
@@ -59,6 +60,32 @@ final class GameViewController: UIViewController {
         clockBarButtonItem = UIBarButtonItem(image: UIImage(named: "clock")?.withRenderingMode(.alwaysOriginal),
                                              style: .done, target: nil, action: nil)
         submitButton.layer.cornerRadius = Constant.submitButtonRadius
+        let backBarButton = UIBarButtonItem(image: UIImage(named: "back")?.withRenderingMode(.alwaysOriginal),
+                                            style: .done, target: self, action: #selector(backToCategory))
+        navigationItem.leftBarButtonItem = backBarButton
+    }
+    
+    @objc private func backToCategory() {
+        switch examMode {
+        case .exam:
+            quitExamAlert()
+        case .see:
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    private func quitExamAlert() {
+        timerCount.invalidate()
+        let quitAlert = UIAlertController(title: "Thông báo!", message: "Kết quả bài thi này sẽ không được lưu!\nBạn có chắc chắn bỏ cuộc không?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .cancel) { [weak self] (_) in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        let noAction = UIAlertAction(title: "No", style: .destructive) { [weak self] (_) in
+            self?.setupTime()
+        }
+        quitAlert.addAction(noAction)
+        quitAlert.addAction(yesAction)
+        present(quitAlert, animated: true, completion: nil)
     }
     
     private func checkMode() {
@@ -88,6 +115,7 @@ final class GameViewController: UIViewController {
     
     //  MARK: - Action
     @IBAction func submitAction(_ sender: Any) {
+        examMode = .see
         let result = questionArray.filter {
             $0.chosenCorrectAnswer == true
         }
@@ -132,6 +160,15 @@ extension GameViewController: UITableViewDataSource {
 }
 
 extension GameViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.backgroundView?.backgroundColor = .white
+            headerView.textLabel?.textColor = .red
+            headerView.textLabel?.font = .systemFont(ofSize: 15)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }

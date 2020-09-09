@@ -56,22 +56,22 @@ final class LoginViewController: UIViewController {
     
     func getData() {
         if ((AccessToken.current) != nil){
-                       GraphRequest(graphPath: "me",
-                           parameters: ["fields": "id, name"]).start(completionHandler: {
-                               (connection, result , error) -> Void in
-                               if error == nil {
-                                   let dict = result as! [String : AnyObject]
-                                   let picutreDic = dict as NSDictionary
-                                   let nameOfUser = picutreDic.object(forKey: "name") as! String
-                               }
-                               else {
+            GraphRequest(graphPath: "me",
+                         parameters: ["fields": "id, name"]).start(completionHandler: {
+                            (connection, result , error) -> Void in
+                            if error == nil {
+                                let dict = result as! [String : AnyObject]
+                                let picutreDic = dict as NSDictionary
+                                let nameOfUser = picutreDic.object(forKey: "name") as! String
+                            }
+                            else {
                                 print(error?.localizedDescription as Any)
-                               }
-                           })
-                   }
-                   else {
-                       print("Access Token is nil")
-                   }
+                            }
+                         })
+        }
+        else {
+            print("Access Token is nil")
+        }
     }
     // MARK: - Setup Data
     private func setupData() {
@@ -88,7 +88,9 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        let email = user.profile.email ?? "No Email"
+        if user != nil {
+            let email = user.profile.email ?? "No Email"            
+        }
         guard let categoryScreen = storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
             return
         }
