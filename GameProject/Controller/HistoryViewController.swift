@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -34,10 +34,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 guard let user = child.value as? [String : Any] else {
                     return
                 }
-                let category = user["category"] as! String
-                let result = user["result"] as! String
-                let score = user["score"] as! Int
-                let u = User(result: result, category: category, score: score)
+                let u = User(user: user)
                 myScore.append(u)
             }
             self.arrScore = myScore
@@ -45,6 +42,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    override func viewDidLoad() {
+      super.viewDidLoad()
+        getData()
+        tableview.dataSource = self
+        tableview.register(UINib(nibName: Constant.historyCell, bundle: nil), forCellReuseIdentifier: Constant.cellIndentifier)
+    }
+}
+
+extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrScore.count
     }
@@ -55,13 +61,4 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.setContent(data: score, i: indexPath.row)
         return cell
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getData()
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.register(UINib(nibName: Constant.historyCell, bundle: nil), forCellReuseIdentifier: Constant.cellIndentifier)
-    }
-    
 }

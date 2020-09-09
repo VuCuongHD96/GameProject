@@ -9,12 +9,10 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
+    
     @IBOutlet private weak var lblSTT: UILabel!
-    
     @IBOutlet private weak var lblCategory: UILabel!
-    
     @IBOutlet private weak var lblScore: UILabel!
-    
     @IBOutlet private weak var lblResult: UILabel!
     
     override func awakeFromNib() {
@@ -29,6 +27,6 @@ class HistoryTableViewCell: UITableViewCell {
         lblResult.text = data.result
         lblScore.text = String(data.score)
         lblCategory.text = data.category
-        lblSTT.text = String(i+1)
+        lblSTT.text = String(i + 1)
     }
 }

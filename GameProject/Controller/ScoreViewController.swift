@@ -14,14 +14,13 @@ import FirebaseDatabase
 final class ScoreViewController: UIViewController {
     
     var ref = Database.database().reference()
-    var i = 0
     var timer = Timer()
     var timeNext = 2
     var userName: String = "thang"
     var category: String = "toan"
     var result: String = "pass"
     var score: Int = 120
-     struct Constant {
+    struct Constant {
         static let childKey = "Users"
     }
     
@@ -37,20 +36,17 @@ final class ScoreViewController: UIViewController {
                 guard let user = child.value as? [String : Any] else {
                     return
                 }
-                let category = user["category"] as! String
-                let result = user["result"] as! String
-                let score = user["score"] as! Int
-                let u = User(result: result, category: category, score: score)
+                let u = User(user: user)
                 myUser.append(u)
             }
-            self.i = myUser.count
-            self.ref.child("Users").child(self.userName).child("\(self.i+1)").setValue(["category": self.category, "result": self.result, "score": self.score])
+            self.ref.child("Users").child(self.userName).child("\(myUser.count + 1)").setValue(["category": self.category, "result": self.result, "score": self.score])
         }
     }
     
     func nextVC() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let historyVC = sb.instantiateViewController(identifier: "History") as! HistoryViewController
+        guard let historyVC = storyboard?.instantiateViewController(identifier: "History") as? HistoryViewController else {
+            return
+        }
         self.navigationController?.pushViewController(historyVC, animated: true)
     }
     
@@ -60,7 +56,7 @@ final class ScoreViewController: UIViewController {
     
     @objc func updateTimer(){
         timeNext -= 1
-        if(timeNext == 0){
+        if (timeNext == 0) {
             timer.invalidate()
             nextVC()
         }

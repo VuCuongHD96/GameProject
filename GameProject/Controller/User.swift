@@ -12,9 +12,10 @@ struct User {
     var result: String
     var score: Int
     var category: String
-    init(result: String, category: String, score: Int) {
-        self.result = result
-        self.score = score
-        self.category = category
+    
+    init(user: [String : Any]) {
+        self.category = user["category"] as! String
+        self.score = user["score"] as! Int
+        self.result = user["result"] as! String
     }
 }
