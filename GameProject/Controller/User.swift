@@ -13,9 +13,12 @@ struct User {
     var score: Int
     var category: String
     
-    init(user: [String : Any]) {
-        self.category = user["category"] as! String
-        self.score = user["score"] as! Int
-        self.result = user["result"] as! String
+    init?(user: [String : Any]) {
+        guard let category = user["category"] as? String else { return nil }
+        self.category = category
+        guard let score = user["score"] as? Int else { return nil }
+        self.score = score
+        guard let result = user["result"] as? String else { return nil }
+        self.result = result
     }
 }

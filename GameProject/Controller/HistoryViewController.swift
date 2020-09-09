@@ -35,7 +35,7 @@ class HistoryViewController: UIViewController {
                     return
                 }
                 let u = User(user: user)
-                myScore.append(u)
+                myScore.append(u!)
             }
             self.arrScore = myScore
             self.tableview.reloadData()

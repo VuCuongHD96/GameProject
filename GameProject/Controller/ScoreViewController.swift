@@ -37,7 +37,7 @@ final class ScoreViewController: UIViewController {
                     return
                 }
                 let u = User(user: user)
-                myUser.append(u)
+                myUser.append(u!)
             }
             self.ref.child("Users").child(self.userName).child("\(myUser.count + 1)").setValue(["category": self.category, "result": self.result, "score": self.score])
         }
