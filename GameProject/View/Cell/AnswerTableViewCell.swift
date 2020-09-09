@@ -11,12 +11,19 @@ import UIKit
 class AnswerTableViewCell: UITableViewCell {
 
     //  MARK: - Outlet
-    @IBOutlet private weak var checkImage: UIImageView!
+    @IBOutlet private weak var selectedIcon: UIImageView!
     @IBOutlet private weak var answerLabel: UILabel!
+    
+    //  MARK: - Properties
+    struct Constant {
+        static let animationTime = 0.3
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         invisibleCheckImage()
+        hideCheckImage()
+        selectionStyle = .none
     }
     
     //  MARK: - Setup Data
@@ -39,20 +46,19 @@ class AnswerTableViewCell: UITableViewCell {
     
     //  MARK: - Setup View
     func invisibleCheckImage() {
-        checkImage.isHidden = true
-        selectionStyle = .none
+        selectedIcon.isHidden = true
     }
     
     func hideCheckImage() {
-        UIView.animate(withDuration: 0.5) {
-            self.checkImage.transform = .init(translationX: -50, y: 0)
+        UIView.animate(withDuration: Constant.animationTime) {
+            self.selectedIcon.transform = .init(translationX: -50, y: 0)
         }
     }
     
     func showCheckImage() {
-        UIView.animate(withDuration: 0.5) {
-            self.checkImage.isHidden = false
-            self.checkImage.transform = .identity
+        UIView.animate(withDuration: Constant.animationTime) {
+            self.selectedIcon.isHidden = false
+            self.selectedIcon.transform = .identity
         }
     }
 }

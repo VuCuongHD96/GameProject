@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="LyP-YT-EaB">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="LyP-YT-EaB">
                         <rect key="frame" x="10" y="9.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="LyP-YT-EaB" secondAttribute="height" id="0Gi-2V-YAN"/>
@@ -42,12 +41,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="answerLabel" destination="sfF-W0-tXe" id="7CC-Jr-NZB"/>
-                <outlet property="checkImage" destination="LyP-YT-EaB" id="XMW-Mt-eZX"/>
+                <outlet property="selectedIcon" destination="LyP-YT-EaB" id="XMW-Mt-eZX"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checked" width="16" height="16"/>
+        <image name="select" width="32" height="32"/>
     </resources>
 </document>

@@ -18,6 +18,7 @@ struct Question {
     var question: String
     var answer: Int
     var chosenCorrectAnswer = false
+    var answerSelected: Int?
     
     init(_ dict: [String : Any]) {
         self.question = dict["Question"] as? String ?? ""
@@ -27,5 +28,14 @@ struct Question {
         self.b = dict["B"] as? String ?? ""
         self.c = dict["C"] as? String ?? ""
         self.d = dict["D"] as? String ?? ""
+    }
+    
+    mutating func checkAnswer(answerSelected: Int) {
+        if answer == answerSelected {
+            chosenCorrectAnswer = true
+        } else {
+            chosenCorrectAnswer = false
+        }
+        self.answerSelected = answerSelected
     }
 }
