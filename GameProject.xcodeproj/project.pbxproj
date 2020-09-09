@@ -81,6 +81,7 @@
 			children = (
 				10274CD025038D5E003D5442 /* Question.swift */,
 				4CD5A42225077C2C001180CB /* RightButtonBars.swift */,
+				9B4EB0BA250881DB009EBA38 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,9 +142,6 @@
 				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
 				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
 				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
-				9B4EB0B6250875CE009EBA38 /* HistoryTableViewCell.swift */,
-				9B4EB0B7250875CE009EBA38 /* HistoryTableViewCell.xib */,
-				9B4EB0BA250881DB009EBA38 /* User.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +183,8 @@
 				4CC113042504FE0C005E139B /* AnswerTableViewCell.xib */,
 				4CD5A41825072DC6001180CB /* CategoryCell.swift */,
 				4CD5A41925072DC6001180CB /* CategoryCell.xib */,
+				9B4EB0B6250875CE009EBA38 /* HistoryTableViewCell.swift */,
+				9B4EB0B7250875CE009EBA38 /* HistoryTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
