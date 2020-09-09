@@ -18,7 +18,7 @@ final class CategoryViewController: UIViewController {
     struct Constant {
         static let cellID = "CategoryCell"
         static let navigationTitle = "Category"
-        static let cellHeight: CGFloat = 200
+        static let cellHeight: CGFloat = 250
     }
     var ref: DatabaseReference!
     var categoryArray = [String]() {
@@ -46,7 +46,7 @@ final class CategoryViewController: UIViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .allEvents)
+        refreshControl.addTarget(self, action: #selector(refreshCategoryData), for: .allEvents)
         tableView.dataSource = self
         tableView.delegate = self
         let nibName = UINib(nibName: Constant.cellID, bundle: nil)
@@ -66,7 +66,7 @@ final class CategoryViewController: UIViewController {
         }
     }
     
-    @objc private func refreshWeatherData(_ sender: Any) {
+    @objc private func refreshCategoryData(_ sender: Any) {
         fetchData()
         refreshControl.endRefreshing()
     }
@@ -74,14 +74,7 @@ final class CategoryViewController: UIViewController {
     //  MARK:   - Setup Views
     private func setupViews() {
         navigationItem.title = Constant.navigationTitle
-        let logoutImage = UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal),
-                                          style: .plain, target: self, action: #selector(logout))
-        navigationItem.leftBarButtonItem = logoutImage
-        navigationItem.leftBarButtonItem = logoutImage
-        modeButton = UIBarButtonItem(title: "See", style: .done, target: self, action: #selector(changeMode))
-        modeImage = UIBarButtonItem(image: UIImage(named: "eye")?.withRenderingMode(.alwaysOriginal),
-                                        style: .done, target: self, action: #selector(changeMode))
-        navigationItem.rightBarButtonItems = [modeButton, modeImage]
+        navigationItem.hidesBackButton = true
     }
     
     @objc private func logout() {
@@ -89,27 +82,13 @@ final class CategoryViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func changeMode() {
-        switch examMode {
-        case .exam:
-            examMode = .see
-        case .see:
-            examMode = .exam
-        }
-        let rightButtonBars = examMode.getRightButtonBars()
-        modeButton = UIBarButtonItem(title: rightButtonBars.title, style: .done, target: self, action: #selector(changeMode))
-        modeImage = UIBarButtonItem(image: UIImage(named: rightButtonBars.image)?.withRenderingMode(.alwaysOriginal),
-                                        style: .done, target: self, action: #selector(changeMode))
-        navigationItem.rightBarButtonItems = [modeButton, modeImage]
-    }
-    
-    private func gotoGameScreen(_ row: Int) {
+    private func gotoGameScreen(_ row: Int, mode: ExamMode) {
         guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
             return
         }
         gameScreen.category = categoryArray[row]
         gameScreen.dataSnapShot = dataSnapshotArray[row]
-        gameScreen.examMode = examMode
+        gameScreen.examMode = mode
         navigationController?.pushViewController(gameScreen, animated: true)
     }
 }
@@ -123,6 +102,9 @@ extension CategoryViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellID) as? CategoryCell else {
             return UITableViewCell()
         }
+        cell.choiseExamMode = { [weak self] in
+            self?.gotoGameScreen(indexPath.row, mode: $0)
+        }
         let category = categoryArray[indexPath.row]
         cell.setContent(data: category)
         return cell
@@ -134,14 +116,6 @@ extension CategoryViewController: UITableViewDelegate {
         print(indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             return
-        }
-        UIView.animate(withDuration: 0.2) {
-            cell.transform = .init(scaleX: 0.6, y: 0.6)
-            UIView.animate(withDuration: 0.2, animations: {
-                cell.transform = .identity
-            }) { (_) in
-                self.gotoGameScreen(indexPath.row)
-            }
         }
     }
     

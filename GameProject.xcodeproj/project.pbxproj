@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10274CD125038D5E003D5442 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10274CD025038D5E003D5442 /* Question.swift */; };
+		4C3CD66525086DB3007EE38C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CD66425086DB3007EE38C /* UIView+.swift */; };
 		4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */; };
 		4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */; };
 		4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C22500CBDE008E73C0 /* LoginViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		10274CD025038D5E003D5442 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.release.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.release.xcconfig"; sourceTree = "<group>"; };
+		4C3CD66425086DB3007EE38C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		4C5F91BB2500CBDE008E73C0 /* GameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C3CD66325086D8D007EE38C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4C3CD66425086DB3007EE38C /* UIView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		4C5F91B22500CBDE008E73C0 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 				4C5F91D22500D262008E73C0 /* Controller */,
 				4C5F91DE2500F527008E73C0 /* Unit */,
 				4C5F91D52500D27B008E73C0 /* Support */,
+				4C3CD66325086D8D007EE38C /* Extension */,
 				4C5F91CC2500CBE0008E73C0 /* Info.plist */,
 			);
 			path = GameProject;
@@ -321,6 +332,7 @@
 				4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */,
 				4C5F91E02500F570008E73C0 /* FirebaseChild.swift in Sources */,
 				4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */,
+				4C3CD66525086DB3007EE38C /* UIView+.swift in Sources */,
 				4CD5A42125077C05001180CB /* ExamMode.swift in Sources */,
 				4CD5A41A25072DC6001180CB /* CategoryCell.swift in Sources */,
 			);

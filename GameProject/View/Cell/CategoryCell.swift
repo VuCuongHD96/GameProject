@@ -8,10 +8,8 @@
 
 import UIKit
 
-import UIKit
-
 final class CategoryCell: UITableViewCell {
-
+    
     // MARK: - Outlet
     @IBOutlet private weak var categoryImage: UIImageView!
     @IBOutlet private weak var categoryLabel: UILabel!
@@ -20,6 +18,8 @@ final class CategoryCell: UITableViewCell {
     struct Constant {
         static let categoryImageRadius: CGFloat = 10
     }
+    typealias handle = (ExamMode) -> ()
+    var choiseExamMode: handle?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,5 +36,24 @@ final class CategoryCell: UITableViewCell {
     func setContent(data: String) {
         categoryLabel.text = data
         categoryImage.image = UIImage(named: data)
+    }
+    
+    // MARK: - Action
+    @IBAction func choiseAction(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = .init(scaleX: 0.5, y: 0.5)
+            UIView.animate(withDuration: 0.3, animations: {
+                sender.transform = .identity
+            }) { [weak self] (_) in
+                switch sender.tag {
+                case 0:
+                    self?.choiseExamMode?(ExamMode.see)
+                case 1:
+                    self?.choiseExamMode?(ExamMode.exam)
+                default:
+                    print("Chọn sai")
+                }
+            }
+        }
     }
 }
