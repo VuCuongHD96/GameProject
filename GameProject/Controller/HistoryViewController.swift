@@ -34,9 +34,9 @@ class HistoryViewController: UIViewController {
                 guard let user = child.value as? [String : Any] else {
                     return
                 }
-                if let u = User(user: user) {
-                    myScore.append(u)
-                }
+//                if let u = User(user: user) {
+//                    myScore.append(u)
+//                }
             }
             self.arrScore = myScore
             self.tableview.reloadData()
