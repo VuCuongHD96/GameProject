@@ -18,6 +18,7 @@ final class HistoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var numberOfQuestion: UILabel!
     @IBOutlet private weak var resultlabel: UILabel!
     @IBOutlet private weak var userNameStackView: UIStackView!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ final class HistoryTableViewCell: UITableViewCell {
     // MARK: - Setup Views
     private func setupViews() {
         invisibleUserStackView()
+        nameLabel.text = "Tên người chơi"
     }
     
     func hideUserStackView() {
