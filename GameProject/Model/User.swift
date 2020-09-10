@@ -51,7 +51,6 @@ struct User {
     
     private mutating func checkEmail() {
         Firebase.prohibitArray.forEach {
-            print($0)
             email = email.replacingOccurrences(of: $0, with: "", options: .literal, range: nil)
         }
     }
