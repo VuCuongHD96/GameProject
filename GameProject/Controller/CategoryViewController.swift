@@ -58,7 +58,7 @@ final class CategoryViewController: UIViewController {
     
     private func fetchData() {
         ref = Database.database().reference()
-        ref.child(FirebaseChild.childKey)
+        ref.child(Firebase.childKey)
             .observeSingleEvent(of: .value) { (snapshot) in
                 let categoryDict = snapshot.value as? [String : Any] ?? [:]
                 self.categoryArray = Array(categoryDict.keys)

@@ -31,6 +31,7 @@ final class GameViewController: UIViewController {
     var answerDict = [Int : AnswerTableViewCell]()
     var examMode = ExamMode.see
     var isSubmit = false
+    var isSelectedAnswer = false
     
     //  MARK: - Lyfe Cycle
     override func viewDidLoad() {
@@ -108,7 +109,7 @@ final class GameViewController: UIViewController {
             self.timeCouting -= 1
             if self.timeCouting == -1 {
                 self.timerCount.invalidate()
-                self.submitAction((Any).self)
+                self.submitAction(self.submitButton)
                 self.tableView.allowsSelection = false
             }
         }
@@ -122,20 +123,32 @@ final class GameViewController: UIViewController {
     }
     
     //  MARK: - Action
-    @IBAction func submitAction(_ sender: Any) {
+    @IBAction func submitAction(_ sender: UIButton) {
         isSubmit = true
         tableView.reloadData()
         examMode = .see
+        timerCount.invalidate()
+        tableView.allowsSelection = false
+        gotoScoreScreen()
+        let resultBarButton = UIBarButtonItem(image: UIImage(named: "result")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(gotoScoreScreen))
+        navigationItem.rightBarButtonItem = resultBarButton
+        sender.isEnabled = false
+    }
+    
+    @objc private func gotoScoreScreen() {
         let result = questionArray.filter {
             $0.chosenCorrectAnswer == true
         }
         let score = result.count
-        let alert = UIAlertController(title: "Kết quả", message: "Điểm của bạn là \(score)", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-        timerCount.invalidate()
-        tableView.allowsSelection = false
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let user = User(score: score, category: category, email: email, numberOfQuestion: questionArray.count, isGiveUp: !isSelectedAnswer)
+        guard let scoreScreen = storyboard?.instantiateViewController(identifier: "scoreScreen") as? ScoreViewController else {
+            return
+        }
+        scoreScreen.user = user
+        navigationController?.pushViewController(scoreScreen, animated: true)
     }
 }
 
@@ -206,5 +219,6 @@ extension GameViewController: UITableViewDelegate {
         }
         answerDict[section] = cell
         questionArray[section].checkAnswer(answerSelected: row)
+        isSelectedAnswer = true
     }
 }

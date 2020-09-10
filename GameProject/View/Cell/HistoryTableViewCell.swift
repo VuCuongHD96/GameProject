@@ -10,10 +10,10 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var lblSTT: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var lblCategory: UILabel!
     @IBOutlet private weak var lblScore: UILabel!
-    @IBOutlet private weak var lblResult: UILabel!
+    @IBOutlet private weak var resultLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,9 +24,9 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func setContent(data: User, i: Int) {
-        lblResult.text = data.result
-        lblScore.text = String(data.score)
-        lblCategory.text = data.category
-        lblSTT.text = String(i + 1)
+        resultLabel.text = data.resultMess
+//        lblScore.text = String(data.score)
+//        lblCategory.text = data.category
+        resultLabel.text = data.resultMess
     }
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct FirebaseChild {
+struct Firebase {
     static let childKey = "1iaMdC7zOZDlle8jkCxed-N5fegvGdNT1stzZphOcV6s"
     static let users = "Users"
+    static let prohibitArray = [".", "#", "$", "[", "]"]
 }
