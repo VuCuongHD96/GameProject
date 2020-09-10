@@ -19,6 +19,8 @@ final class CategoryViewController: UIViewController {
         static let cellID = "CategoryCell"
         static let navigationTitle = "Category"
         static let cellHeight: CGFloat = 250
+        static let scaleTime = 0.3
+        static let scaleRatio: CGFloat = 0.5
     }
     var ref: DatabaseReference!
     var categoryArray = [String]() {
@@ -113,9 +115,14 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             return
+        }
+        UIView.animate(withDuration: Constant.scaleTime) {
+            cell.transform = .init(scaleX: Constant.scaleRatio, y: Constant.scaleRatio)
+            UIView.animate(withDuration: Constant.scaleTime) {
+                cell.transform = .identity
+            }
         }
     }
     

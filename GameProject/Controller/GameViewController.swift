@@ -19,7 +19,7 @@ final class GameViewController: UIViewController {
         static let numberOfRowInSection = 4
         static let cellIndentifier = "AnswerTableViewCell"
         static let submitButtonRadius: CGFloat = 10
-        static let titleHeaderFontSize = 15
+        static let titleHeaderFontSize: CGFloat = 15
     }
     var category = ""
     var dataSnapShot = DataSnapshot()
@@ -182,7 +182,7 @@ extension GameViewController: UITableViewDelegate {
         if let headerView = view as? UITableViewHeaderFooterView {
             headerView.backgroundView?.backgroundColor = .white
             headerView.textLabel?.textColor = .red
-            headerView.textLabel?.font = .systemFont(ofSize: 15)
+            headerView.textLabel?.font = .systemFont(ofSize: Constant.titleHeaderFontSize)
         }
     }
     
