@@ -49,6 +49,10 @@ final class HistoryViewController: UIViewController {
     }
     
     private func fetchData() {
+        fetchHistoryData()
+    }
+    
+    private func fetchHistoryData() {
         ref = Database.database().reference()
         ref.child(Constant.childKey).child(user.email)
             .observeSingleEvent(of: .value) { snapshot in
@@ -91,6 +95,6 @@ extension HistoryViewController: UITableViewDataSource {
 
 extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 180
     }
 }

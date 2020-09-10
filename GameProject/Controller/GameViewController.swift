@@ -13,6 +13,7 @@ final class GameViewController: UIViewController {
     //  MARK: - Outlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var submitButton: UIButton!
+    @IBOutlet private weak var showResult: UIButton!
     
     //  MARK: - Properties
     struct Constant {
@@ -59,6 +60,7 @@ final class GameViewController: UIViewController {
     
     //  MARK: - Setup View
     private func setupViews() {
+        showResult.isHidden = true
         clockBarButtonItem = UIBarButtonItem(image: UIImage(named: "clock")?.withRenderingMode(.alwaysOriginal),
                                              style: .done, target: nil, action: nil)
         submitButton.layer.cornerRadius = Constant.submitButtonRadius
@@ -129,11 +131,29 @@ final class GameViewController: UIViewController {
         examMode = .see
         timerCount.invalidate()
         tableView.allowsSelection = false
-        gotoScoreScreen()
-        let resultBarButton = UIBarButtonItem(image: UIImage(named: "result")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(gotoScoreScreen))
-        navigationItem.rightBarButtonItem = resultBarButton
         sender.isEnabled = false
         sender.backgroundColor = .gray
+        timerCount.invalidate()
+        UIView.animate(withDuration: 0.5, animations: {
+            self.showResult.isHidden = false
+        }) { _ in
+            self.setupShowResultOutlet()
+        }
+    }
+    
+    private func setupShowResultOutlet() {
+        timeCouting = 10
+        timerCount = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.timeCouting -= 1
+            self.showResult.setTitle("  Show Result (\(self.timeCouting))", for: .normal)
+            if self.timeCouting == 0 {
+                self.gotoScoreScreen()
+            }
+        })
+    }
+    
+    @IBAction func showResultAction(_ sender: Any) {
+        gotoScoreScreen()
     }
     
     @objc private func gotoScoreScreen() {
@@ -150,6 +170,7 @@ final class GameViewController: UIViewController {
         }
         scoreScreen.user = user
         navigationController?.pushViewController(scoreScreen, animated: true)
+        timerCount.invalidate()
     }
 }
 
