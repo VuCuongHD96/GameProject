@@ -40,6 +40,15 @@ final class CategoryViewController: UIViewController {
         setupData()
         setupViews()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    deinit {
+        print("Category die")
+    }
     
     //  MARK:   - Setup Data
     private func setupData() {

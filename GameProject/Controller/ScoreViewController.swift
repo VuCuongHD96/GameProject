@@ -61,6 +61,7 @@ final class ScoreViewController: UIViewController {
         }
         scoreLabel.text = String(user.score) + "/" + String(user.numberOfQuestion)
         backGroundImageView.image = UIImage(named: user.category)
+        navigationItem.title = "Result"
     }
     
     // MARK: - Setup Data
@@ -91,9 +92,17 @@ final class ScoreViewController: UIViewController {
     }
     
     @IBAction func playAgain(_ sender: Any) {
-        guard let categoryScreen = storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
+        guard let categoryScreen = navigationController?.viewControllers[1] as? CategoryViewController else {
             return
         }
         navigationController?.popToViewController(categoryScreen, animated: true)
+    }
+    
+    @IBAction func viewHistory(_ sender: Any) {
+        guard let historyScreen = storyboard?.instantiateViewController(identifier: "historyScreen") as? HistoryViewController else {
+            return
+        }
+        historyScreen.user = user
+        navigationController?.pushViewController(historyScreen, animated: true)
     }
 }

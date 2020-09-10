@@ -133,6 +133,7 @@ final class GameViewController: UIViewController {
         let resultBarButton = UIBarButtonItem(image: UIImage(named: "result")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(gotoScoreScreen))
         navigationItem.rightBarButtonItem = resultBarButton
         sender.isEnabled = false
+        sender.backgroundColor = .gray
     }
     
     @objc private func gotoScoreScreen() {

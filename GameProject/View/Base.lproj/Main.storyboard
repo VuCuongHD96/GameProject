@@ -138,7 +138,7 @@
                                             <color key="titleColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="xkA-X5-jt3"/>
+                                            <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="md0-vW-VhW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXT-sm-lTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="152.47376311844079"/>
+            <point key="canvasLocation" x="-223" y="922"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="00x-oi-Vj9">
@@ -232,7 +232,7 @@
                                         <rect key="frame" x="210" y="1" width="105" height="48"/>
                                         <state key="normal" image="history"/>
                                         <connections>
-                                            <segue destination="dMg-AS-pPG" kind="show" id="yE9-PT-Ljd"/>
+                                            <action selector="viewHistory:" destination="fR2-mJ-SxQ" eventType="touchUpInside" id="NC0-qr-bTy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -280,45 +280,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnN-oA-rXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152.8000000000002" y="151.57421289355324"/>
+            <point key="canvasLocation" x="716" y="922"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="CVC-vO-xjv">
             <objects>
-                <viewController storyboardIdentifier="History" id="dMg-AS-pPG" customClass="HistoryViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="historyScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dMg-AS-pPG" customClass="HistoryViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xzU-AP-rHz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Czd-VH-C6T">
-                                <rect key="frame" x="0.0" y="162" width="375" height="485"/>
+                                <rect key="frame" x="5" y="10" width="365" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THN-KO-5Yo">
-                                <rect key="frame" x="62" y="36" width="250" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qto-V1-aKM" firstAttribute="trailing" secondItem="Czd-VH-C6T" secondAttribute="trailing" id="1h5-2O-JvW"/>
-                            <constraint firstItem="Czd-VH-C6T" firstAttribute="leading" secondItem="Qto-V1-aKM" secondAttribute="leading" id="2ze-fr-dpQ"/>
-                            <constraint firstItem="Czd-VH-C6T" firstAttribute="height" secondItem="xzU-AP-rHz" secondAttribute="height" multiplier="0.75" id="4tW-D9-AVb"/>
-                            <constraint firstItem="Qto-V1-aKM" firstAttribute="bottom" secondItem="Czd-VH-C6T" secondAttribute="bottom" id="f6z-1v-1A5"/>
+                            <constraint firstItem="Czd-VH-C6T" firstAttribute="leading" secondItem="Qto-V1-aKM" secondAttribute="leading" constant="5" id="ike-eQ-GgK"/>
+                            <constraint firstItem="Qto-V1-aKM" firstAttribute="trailing" secondItem="Czd-VH-C6T" secondAttribute="trailing" constant="5" id="o7y-Ee-7zZ"/>
+                            <constraint firstItem="Qto-V1-aKM" firstAttribute="bottom" secondItem="Czd-VH-C6T" secondAttribute="bottom" constant="10" id="pVv-Ug-gkk"/>
+                            <constraint firstItem="Czd-VH-C6T" firstAttribute="top" secondItem="Qto-V1-aKM" secondAttribute="top" constant="10" id="rGb-ys-4x7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qto-V1-aKM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="g5D-zR-akd"/>
+                    <navigationItem key="navigationItem" id="g5D-zR-akd">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Mat-hA-RAW">
+                            <rect key="frame" x="122" y="5.5" width="131" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="History"/>
+                                <segment title="Rank"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedAction:" destination="dMg-AS-pPG" eventType="valueChanged" id="iWj-Eu-rem"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="Czd-VH-C6T" id="vdC-vg-j8E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsS-cr-3jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4022" y="152"/>
+            <point key="canvasLocation" x="1536.8" y="921.58920539730138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ygs-4o-cFo">
@@ -331,7 +337,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="heP-4r-BcH"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zgg-fo-9Aq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibK-K0-aSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
