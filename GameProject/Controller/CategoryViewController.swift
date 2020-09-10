@@ -33,12 +33,17 @@ final class CategoryViewController: UIViewController {
     var modeButton = UIBarButtonItem()
     var modeImage = UIBarButtonItem()
     private let refreshControl = UIRefreshControl()
+    //lay data tu setting
+    var numberOfQuestion = ""
+    var timeOfgame = ""
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
         setupViews()
+        print(numberOfQuestion)
+        print(timeOfgame)
     }
     
     //  MARK:   - Setup Data
