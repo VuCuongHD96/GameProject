@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10274CD125038D5E003D5442 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10274CD025038D5E003D5442 /* Question.swift */; };
+		28466A3D2509C83400C33B6B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28466A3C2509C83400C33B6B /* SettingViewController.swift */; };
 		4C3CD66525086DB3007EE38C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CD66425086DB3007EE38C /* UIView+.swift */; };
 		4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */; };
 		4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		10274CD025038D5E003D5442 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		28466A3C2509C83400C33B6B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.release.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.release.xcconfig"; sourceTree = "<group>"; };
 		4C3CD66425086DB3007EE38C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		4C5F91BB2500CBDE008E73C0 /* GameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
 				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
 				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
+				28466A3C2509C83400C33B6B /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */,
 				9B4EB0B52508749E009EBA38 /* HistoryViewController.swift in Sources */,
 				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
+				28466A3D2509C83400C33B6B /* SettingViewController.swift in Sources */,
 				4CC113052504FE0C005E139B /* AnswerTableViewCell.swift in Sources */,
 				9B4EB0BB250881DB009EBA38 /* User.swift in Sources */,
 				4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */,
