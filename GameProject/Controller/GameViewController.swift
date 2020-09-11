@@ -14,6 +14,7 @@ final class GameViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var submitButton: UIButton!
     @IBOutlet private weak var showResult: UIButton!
+    @IBOutlet private weak var resultStackView: UIStackView!
     
     //  MARK: - Properties
     struct Constant {
@@ -100,7 +101,7 @@ final class GameViewController: UIViewController {
             setupTime()
         case .see:
             tableView.allowsSelection = false
-            submitButton.isHidden = true
+            resultStackView.isHidden = true
         }
     }
     
@@ -134,7 +135,7 @@ final class GameViewController: UIViewController {
         sender.isEnabled = false
         sender.backgroundColor = .gray
         timerCount.invalidate()
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.showResult.isHidden = false
         }) { _ in
             self.setupShowResultOutlet()

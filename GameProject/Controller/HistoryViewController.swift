@@ -19,10 +19,21 @@ final class HistoryViewController: UIViewController {
     struct Constant {
         static let historyCell = "HistoryTableViewCell"
         static let childKey = "Users"
+        static let cellHeight: CGFloat = 180
     }
     var user: User!
     var ref: DatabaseReference!
-    var userArray = [User]() {
+    var historyArray = [User]() {
+        didSet {
+            listUserArray = historyArray
+        }
+    }
+    var rankArray = [User]() {
+        didSet {
+            setRankOder()
+        }
+    }
+    var listUserArray = [User]() {
         didSet {
             tableview.reloadData()
         }
@@ -50,6 +61,7 @@ final class HistoryViewController: UIViewController {
     
     private func fetchData() {
         fetchHistoryData()
+        fetchRankData()
     }
     
     private func fetchHistoryData() {
@@ -59,27 +71,64 @@ final class HistoryViewController: UIViewController {
                 for case let child as DataSnapshot in snapshot.children {
                     let userDict = child.value as? [String : Any] ?? [:]
                     let user = User(dict: userDict)
-                    self.userArray.append(user)
+                    self.historyArray.append(user)
                 }
+        }
+    }
+    
+    private func fetchRankData() {
+        ref.child(Constant.childKey).observeSingleEvent(of: .value) { snapshot in
+            for case let child as DataSnapshot in snapshot.children {
+                let email = child.key
+                print(email)
+                self.getHighestScoreFrom(email: email)
+            }
+        }
+    }
+    
+    private func setRankOder() {
+        rankArray = rankArray.sorted(by: { (a, b) -> Bool in
+            a.score > b.score
+        })
+    }
+    
+    private func getHighestScoreFrom(email: String) {
+        ref.child(Constant.childKey).child(email).queryOrdered(byChild: "score").queryLimited(toLast: 1)
+            .observeSingleEvent(of: .value) { snapshot in
+            for case let child as DataSnapshot in snapshot.children {
+                let userDict = child.value as? [String : Any] ?? [:]
+                var user = User(dict: userDict)
+                user.email = email
+                self.rankArray.append(user)
+            }
         }
     }
     
     // MARK: - Setup Data
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
         segmentIndexChange = sender.selectedSegmentIndex
+        switch segmentIndexChange {
+        case 0:
+            listUserArray = historyArray
+        case 1:
+            setRankOder()
+            listUserArray = rankArray
+        default:
+            print("Chọn sai Segment Index")
+        }
     }
 }
 
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userArray.count
+        return listUserArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.historyCell, for: indexPath) as? HistoryTableViewCell else {
             return UITableViewCell()
         }
-        let user = userArray[indexPath.row]
+        let user = listUserArray[indexPath.row]
         cell.setContent(data: user)
         switch segmentIndexChange {
         case 0:
@@ -95,6 +144,6 @@ extension HistoryViewController: UITableViewDataSource {
 
 extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return Constant.cellHeight
     }
 }
