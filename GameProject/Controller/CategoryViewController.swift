@@ -95,7 +95,14 @@ final class CategoryViewController: UIViewController {
     }
     
     @objc private func gotoSettingScreen() {
-        print("Vào setting")
+        guard let settingScreen = storyboard?.instantiateViewController(identifier: "settingScreen") as? SettingViewController else {
+            return
+        }
+        settingScreen.passData = {
+            self.numberOfQuestion = $0
+            self.timeToPlay = $1
+        }
+        navigationController?.pushViewController(settingScreen, animated: true)
     }
     
     @objc private func logout() {
