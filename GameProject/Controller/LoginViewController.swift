@@ -63,10 +63,17 @@ final class LoginViewController: UIViewController {
     func getData() {
         if AccessToken.current != nil {
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name"]).start(completionHandler: {(connection, result , error) -> Void in
-                            if error != nil  {
-                                print(error?.localizedDescription as Any)
-                            }
-                         })
+                if error != nil  {
+                    print(error?.localizedDescription as Any)
+                } else {
+                    let dict = result as! [String : AnyObject]
+                    let picutreDic = dict as NSDictionary
+                    let idOfUser = picutreDic.object(forKey: "id") as! String
+                    let nameOfUser = picutreDic.object(forKey: "name") as! String
+                  
+                    print(nameOfUser)
+                }
+            })
         }
         else {
             print("Access Token is nil")

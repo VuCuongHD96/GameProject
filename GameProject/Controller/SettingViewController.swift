@@ -39,11 +39,11 @@ class SettingViewController: UIViewController {
         var placeHolder = NSMutableAttributedString()
         let placeHolderText  = "10"
         placeHolder = NSMutableAttributedString(string:placeHolderText, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 20.0)!])
-         etTime.attributedPlaceholder = placeHolder
+        etTime.attributedPlaceholder = placeHolder
     }
     
     @IBAction func savedSetting(_ sender: Any) {
-        var index = picker.selectedRow(inComponent: 0)
+        let index = picker.selectedRow(inComponent: 0)
         var setTime = etTime.text!
         
         if setTime.isEmpty {
@@ -56,7 +56,7 @@ class SettingViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            var time = Int(setTime)!
+            let time = Int(setTime)!
             if (time >= 10) {
                 guard let vc = self.storyboard?.instantiateViewController(identifier: "categoryScreen") as? CategoryViewController else {
                      return
@@ -70,7 +70,6 @@ class SettingViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
-           
         }
     }
 }
@@ -89,6 +88,7 @@ extension SettingViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
