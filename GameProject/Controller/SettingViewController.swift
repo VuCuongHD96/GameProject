@@ -66,7 +66,7 @@ class SettingViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
-                let alert = UIAlertController(title: "Bạn cần cài đặt lại thời gian", message: "Vui lòng nhập thời gian lớn hơn 10 giây", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Thời gian quá ngắn", message: "Vui lòng nhập thời gian lớn hơn 10 giây", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
