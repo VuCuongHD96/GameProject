@@ -13,6 +13,7 @@ final class CategoryViewController: UIViewController {
     
     //  MARK:   - Outlet
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     //  MARK:   - Properties
     struct Constant {
@@ -25,6 +26,7 @@ final class CategoryViewController: UIViewController {
     var ref: DatabaseReference!
     var categoryArray = [String]() {
         didSet {
+            activityIndicatorView.isHidden = true
             tableView.reloadData()
         }
     }
@@ -33,6 +35,8 @@ final class CategoryViewController: UIViewController {
     var modeButton = UIBarButtonItem()
     var modeImage = UIBarButtonItem()
     private let refreshControl = UIRefreshControl()
+    var numberOfQuestion = 5
+    var timeToPlay = 5
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
@@ -86,6 +90,12 @@ final class CategoryViewController: UIViewController {
     private func setupViews() {
         navigationItem.title = Constant.navigationTitle
         navigationItem.hidesBackButton = true
+        let settingImage = UIImage(named: "settings")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingImage, style: .done, target: self, action: #selector(gotoSettingScreen))
+    }
+    
+    @objc private func gotoSettingScreen() {
+        print("Vào setting")
     }
     
     @objc private func logout() {
@@ -100,6 +110,8 @@ final class CategoryViewController: UIViewController {
         gameScreen.category = categoryArray[row]
         gameScreen.dataSnapShot = dataSnapshotArray[row]
         gameScreen.examMode = mode
+        gameScreen.timeCouting = timeToPlay
+        gameScreen.numberOfQuestion = numberOfQuestion
         navigationController?.pushViewController(gameScreen, animated: true)
     }
 }
