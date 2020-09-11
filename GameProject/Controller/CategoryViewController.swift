@@ -22,6 +22,7 @@ final class CategoryViewController: UIViewController {
         static let scaleTime = 0.3
         static let scaleRatio: CGFloat = 0.5
     }
+    
     var ref: DatabaseReference!
     var categoryArray = [String]() {
         didSet {
@@ -63,8 +64,7 @@ final class CategoryViewController: UIViewController {
     
     private func fetchData() {
         ref = Database.database().reference()
-        ref.child(Firebase.childKey)
-            .observeSingleEvent(of: .value) { (snapshot) in
+        ref.child(Firebase.childKey).observeSingleEvent(of: .value) { (snapshot) in
                 let categoryDict = snapshot.value as? [String : Any] ?? [:]
                 self.categoryArray = Array(categoryDict.keys)
                 for case let childOne as DataSnapshot in snapshot.children {

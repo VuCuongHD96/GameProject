@@ -42,7 +42,6 @@ final class LoginViewController: UIViewController {
     
     func loginFace() {
         let login = LoginManager()
-        login.logOut()
         login.logIn(permissions: [.publicProfile, .email, .userFriends], viewController: self) {
             loginResult in
             switch loginResult {
