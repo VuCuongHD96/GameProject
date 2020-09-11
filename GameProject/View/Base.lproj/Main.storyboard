@@ -128,6 +128,98 @@
             </objects>
             <point key="canvasLocation" x="1537" y="152"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="w45-tN-k9q">
+            <objects>
+                <viewController storyboardIdentifier="settingScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iSW-mc-nuX" customClass="SettingViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="esF-DY-7nf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="XuW-ep-Dit">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acU-0s-jJy">
+                                        <rect key="frame" x="0.0" y="0.0" width="153.5" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="logoutAction:" destination="iSW-mc-nuX" eventType="touchUpInside" id="Nfp-ah-oj5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEs-k6-MJq">
+                                        <rect key="frame" x="181.5" y="0.0" width="153.5" height="50"/>
+                                        <color key="backgroundColor" red="0.37254901959999998" green="0.52156862749999999" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="savedSetting:" destination="iSW-mc-nuX" eventType="touchUpInside" id="oWy-2T-fMt"/>
+                                            <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="dPB-G1-zef"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GiQ-Sn-MIp"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time To Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvT-e6-cl6">
+                                <rect key="frame" x="20" y="294" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLE-Ls-Uww">
+                                <rect key="frame" x="213" y="287" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lw8-qj-Pe1">
+                                <rect key="frame" x="199" y="83" width="156" height="116"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number Of Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2c-jP-xXc">
+                                <rect key="frame" x="12" y="131" width="158" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bOP-XQ-izT" firstAttribute="trailing" secondItem="XuW-ep-Dit" secondAttribute="trailing" constant="20" id="AQo-UU-Cyt"/>
+                            <constraint firstItem="bOP-XQ-izT" firstAttribute="bottom" secondItem="XuW-ep-Dit" secondAttribute="bottom" constant="20" id="mu6-qc-Onv"/>
+                            <constraint firstItem="XuW-ep-Dit" firstAttribute="leading" secondItem="bOP-XQ-izT" secondAttribute="leading" constant="20" id="yJO-9D-Oks"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bOP-XQ-izT"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnSave" destination="BEs-k6-MJq" id="8fd-wS-zi8"/>
+                        <outlet property="etTime" destination="VLE-Ls-Uww" id="ZFl-pC-5bR"/>
+                        <outlet property="picker" destination="Lw8-qj-Pe1" id="25I-LG-TLL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMW-SW-NYi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2424.8000000000002" y="164.16791604197903"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="Svb-z3-p95">
             <objects>
