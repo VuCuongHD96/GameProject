@@ -28,11 +28,7 @@ final class HistoryViewController: UIViewController {
             listUserArray = historyArray
         }
     }
-    var rankArray = [User]() {
-        didSet {
-            setRankOder()
-        }
-    }
+    var rankArray = [User]() 
     var listUserArray = [User]() {
         didSet {
             tableview.reloadData()
@@ -86,10 +82,10 @@ final class HistoryViewController: UIViewController {
         }
     }
     
-    private func setRankOder() {
-        rankArray = rankArray.sorted(by: { (a, b) -> Bool in
-            a.score > b.score
-        })
+    private func sortRank() -> [User] {
+        return rankArray.sorted {
+            $0.score > $1.score
+        }
     }
     
     private func getHighestScoreFrom(email: String) {
@@ -111,8 +107,7 @@ final class HistoryViewController: UIViewController {
         case 0:
             listUserArray = historyArray
         case 1:
-            setRankOder()
-            listUserArray = rankArray
+            listUserArray = sortRank()
         default:
             print("Chọn sai Segment Index")
         }

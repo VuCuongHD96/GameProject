@@ -34,6 +34,8 @@ final class GameViewController: UIViewController {
     var examMode = ExamMode.see
     var isSubmit = false
     var isSelectedAnswer = false
+    var numberOfQuestion = 0
+    var timeToPlay = 0
     
     //  MARK: - Lyfe Cycle
     override func viewDidLoad() {
@@ -57,6 +59,7 @@ final class GameViewController: UIViewController {
             let question = Question(dict)
             questionArray.append(question)
         }
+        questionArray = Array(questionArray.prefix(numberOfQuestion))
     }
     
     //  MARK: - Setup View
@@ -135,7 +138,7 @@ final class GameViewController: UIViewController {
         sender.isEnabled = false
         sender.backgroundColor = .gray
         timerCount.invalidate()
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.showResult.isHidden = false
         }) { _ in
             self.setupShowResultOutlet()

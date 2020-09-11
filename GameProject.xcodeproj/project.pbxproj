@@ -20,6 +20,7 @@
 		4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */; };
 		4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */; };
 		4C5F91E02500F570008E73C0 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91DF2500F570008E73C0 /* Firebase.swift */; };
+		4C603353250B2DF4001F4ECF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C603352250B2DF4001F4ECF /* TableViewController.swift */; };
 		4CC113052504FE0C005E139B /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC113032504FE0C005E139B /* AnswerTableViewCell.swift */; };
 		4CC113062504FE0C005E139B /* AnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC113042504FE0C005E139B /* AnswerTableViewCell.xib */; };
 		4CD5A41A25072DC6001180CB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5A41825072DC6001180CB /* CategoryCell.swift */; };
@@ -51,6 +52,7 @@
 		4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4C5F91DC2500DB6B008E73C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C5F91DF2500F570008E73C0 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		4C603352250B2DF4001F4ECF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		4CC113032504FE0C005E139B /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
 		4CC113042504FE0C005E139B /* AnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerTableViewCell.xib; sourceTree = "<group>"; };
 		4CD5A41825072DC6001180CB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
 				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
 				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
+				4C603352250B2DF4001F4ECF /* TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				4C5F91D72500D344008E73C0 /* CategoryViewController.swift in Sources */,
 				9B4EB0B52508749E009EBA38 /* HistoryViewController.swift in Sources */,
 				4C5F91C32500CBDE008E73C0 /* LoginViewController.swift in Sources */,
+				4C603353250B2DF4001F4ECF /* TableViewController.swift in Sources */,
 				4CC113052504FE0C005E139B /* AnswerTableViewCell.swift in Sources */,
 				9B4EB0BB250881DB009EBA38 /* User.swift in Sources */,
 				4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */,

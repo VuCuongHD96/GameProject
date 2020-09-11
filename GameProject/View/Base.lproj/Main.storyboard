@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,18 +94,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lsN-OG-Vss">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LkZ-WN-eOS"/>
+                                    <constraint firstAttribute="width" constant="50" id="lfp-tE-agV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="greenColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fR0-VV-9ch" firstAttribute="trailing" secondItem="EHz-8a-VFQ" secondAttribute="trailing" id="2vf-Ov-QcF"/>
                             <constraint firstItem="fR0-VV-9ch" firstAttribute="bottom" secondItem="EHz-8a-VFQ" secondAttribute="bottom" constant="5" id="Eu1-JK-U4Z"/>
+                            <constraint firstItem="lsN-OG-Vss" firstAttribute="centerY" secondItem="aiX-IY-7LR" secondAttribute="centerY" id="UlU-B9-4IA"/>
                             <constraint firstItem="EHz-8a-VFQ" firstAttribute="top" secondItem="fR0-VV-9ch" secondAttribute="top" id="YFO-QV-1UU"/>
+                            <constraint firstItem="lsN-OG-Vss" firstAttribute="centerX" secondItem="aiX-IY-7LR" secondAttribute="centerX" id="krM-bu-7dH"/>
                             <constraint firstItem="EHz-8a-VFQ" firstAttribute="leading" secondItem="fR0-VV-9ch" secondAttribute="leading" id="q3H-nu-h87"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fR0-VV-9ch"/>
                     </view>
                     <navigationItem key="navigationItem" id="BBk-xu-eLw"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="lsN-OG-Vss" id="p5H-EE-FWE"/>
                         <outlet property="tableView" destination="EHz-8a-VFQ" id="Hvo-tx-xXS"/>
                     </connections>
                 </viewController>
@@ -369,7 +385,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zgg-fo-9Aq"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xL5-Dj-FjL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibK-K0-aSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -384,5 +400,8 @@
         <image name="previous" width="42.666667938232422" height="42.666667938232422"/>
         <image name="refresh" width="42.666667938232422" height="42.666667938232422"/>
         <image name="result" width="32" height="32"/>
+        <namedColor name="greenColor">
+            <color red="0.40900000929832458" green="0.88700002431869507" blue="0.74299997091293335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
