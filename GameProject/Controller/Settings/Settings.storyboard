@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="lLu-Ok-LIq">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tf2-tg-Ne1" customClass="SettingTableViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="25" sectionFooterHeight="18" id="iMP-vm-QMh">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Number Of Question" id="DvU-vR-Jpg">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="49" id="c1g-Wh-bLh">
+                                        <rect key="frame" x="0.0" y="55.5" width="350" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c1g-Wh-bLh" id="ZUC-6E-4Ud">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v2J-6n-2A0">
+                                                    <rect key="frame" x="35" y="0.0" width="280" height="49"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-7s-E1A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="49"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <state key="normal" title="10"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="choiseNumberOfQuestion:" destination="tf2-tg-Ne1" eventType="touchUpInside" id="nBL-KH-k0h"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRQ-yy-J4p">
+                                                            <rect key="frame" x="72.5" y="0.0" width="62.5" height="49"/>
+                                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <state key="normal" title="20"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="choiseNumberOfQuestion:" destination="tf2-tg-Ne1" eventType="touchUpInside" id="ooC-jV-1fo"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5A-Pg-PdY">
+                                                            <rect key="frame" x="145" y="0.0" width="62.5" height="49"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <state key="normal" title="30"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="choiseNumberOfQuestion:" destination="tf2-tg-Ne1" eventType="touchUpInside" id="ofe-Nf-d0u"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-la-vAi">
+                                                            <rect key="frame" x="217.5" y="0.0" width="62.5" height="49"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <state key="normal" title="40"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="choiseNumberOfQuestion:" destination="tf2-tg-Ne1" eventType="touchUpInside" id="ThV-NX-7PH"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="v2J-6n-2A0" firstAttribute="top" secondItem="ZUC-6E-4Ud" secondAttribute="top" id="6Vm-vr-m43"/>
+                                                <constraint firstItem="v2J-6n-2A0" firstAttribute="width" secondItem="ZUC-6E-4Ud" secondAttribute="width" multiplier="0.8" id="QcM-md-mts"/>
+                                                <constraint firstAttribute="bottom" secondItem="v2J-6n-2A0" secondAttribute="bottom" id="VcW-fC-pCL"/>
+                                                <constraint firstItem="v2J-6n-2A0" firstAttribute="centerX" secondItem="ZUC-6E-4Ud" secondAttribute="centerX" id="txK-kf-0MY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Time to play" id="ooG-D8-Oiq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="hM5-RZ-CVj">
+                                        <rect key="frame" x="0.0" y="160.5" width="350" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hM5-RZ-CVj" id="h13-49-11j">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default is 60 seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmp-Bj-wCb">
+                                                    <rect key="frame" x="81" y="10" width="188.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zmp-Bj-wCb" firstAttribute="centerX" secondItem="h13-49-11j" secondAttribute="centerX" id="12D-HC-Yqy"/>
+                                                <constraint firstItem="Zmp-Bj-wCb" firstAttribute="centerY" secondItem="h13-49-11j" secondAttribute="centerY" id="Kng-D6-5su"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="tf2-tg-Ne1" id="vFA-zC-DQ4"/>
+                            <outlet property="delegate" destination="tf2-tg-Ne1" id="Apg-eR-ZII"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="nhs-ZI-hWg">
+                        <barButtonItem key="leftBarButtonItem" image="logout" id="Mph-PC-XbV">
+                            <connections>
+                                <action selector="logoutAction:" destination="tf2-tg-Ne1" id="4ye-11-307"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hFR-tB-4rS">
+                            <connections>
+                                <action selector="saveAction:" destination="tf2-tg-Ne1" id="ZGq-Lr-1HZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="350" height="667"/>
+                    <connections>
+                        <outletCollection property="numberQuestionButtonArray" destination="bvm-7s-E1A" collectionClass="NSMutableArray" id="0lA-Un-aSR"/>
+                        <outletCollection property="numberQuestionButtonArray" destination="yRQ-yy-J4p" collectionClass="NSMutableArray" id="BDG-Q0-TcF"/>
+                        <outletCollection property="numberQuestionButtonArray" destination="y5A-Pg-PdY" collectionClass="NSMutableArray" id="3xE-oy-pKC"/>
+                        <outletCollection property="numberQuestionButtonArray" destination="mrT-la-vAi" collectionClass="NSMutableArray" id="Ulx-cP-KYN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QmD-5z-33J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4296" y="106.59670164917542"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fj4-bH-kLr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KNv-xG-aSd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ueb-bX-mBU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tf2-tg-Ne1" kind="relationship" relationship="rootViewController" id="jRp-Bx-Z3Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usv-lb-20r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3357.5999999999999" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logout" width="32" height="32"/>
+    </resources>
+</document>

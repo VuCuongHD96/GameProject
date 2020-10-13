@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-class AnswerTableViewCell: UITableViewCell {
+final class AnswerTableViewCell: UITableViewCell, NibReusable {
 
     //  MARK: - Outlet
     @IBOutlet private weak var selectedIcon: UIImageView!
