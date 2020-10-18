@@ -13,4 +13,7 @@ pod 'Firebase/Database'
 pod 'FBSDKLoginKit'   
 pod 'GoogleSignIn'
 
+pod 'Reusable' 
+pod 'Then'∑
+
 end

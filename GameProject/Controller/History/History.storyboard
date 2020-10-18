@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--History View Controller-->
+        <scene sceneID="CVC-vO-xjv">
+            <objects>
+                <viewController storyboardIdentifier="HistoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dMg-AS-pPG" customClass="HistoryViewController" customModule="GameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xzU-AP-rHz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Czd-VH-C6T">
+                                <rect key="frame" x="5" y="54" width="404" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Czd-VH-C6T" firstAttribute="leading" secondItem="Qto-V1-aKM" secondAttribute="leading" constant="5" id="ike-eQ-GgK"/>
+                            <constraint firstItem="Qto-V1-aKM" firstAttribute="trailing" secondItem="Czd-VH-C6T" secondAttribute="trailing" constant="5" id="o7y-Ee-7zZ"/>
+                            <constraint firstItem="Qto-V1-aKM" firstAttribute="bottom" secondItem="Czd-VH-C6T" secondAttribute="bottom" constant="10" id="pVv-Ug-gkk"/>
+                            <constraint firstItem="Czd-VH-C6T" firstAttribute="top" secondItem="Qto-V1-aKM" secondAttribute="top" constant="10" id="rGb-ys-4x7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qto-V1-aKM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g5D-zR-akd">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Mat-hA-RAW">
+                            <rect key="frame" x="122" y="5.5" width="131" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="History"/>
+                                <segment title="Rank"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedAction:" destination="dMg-AS-pPG" eventType="valueChanged" id="iWj-Eu-rem"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="Czd-VH-C6T" id="vdC-vg-j8E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AsS-cr-3jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536.8" y="921.58920539730138"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="Svb-z3-p95">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cvN-8Q-Tb7" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9RI-su-9AD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="54m-Ct-jcT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="813"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-ab-upS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jrn-c0-tOh">
+                                        <rect key="frame" x="20" y="763" width="374" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-6F-8BB">
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="50"/>
+                                                <color key="backgroundColor" red="0.37254901960784315" green="0.52156862745098043" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="submitAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="md0-vW-VhW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eF-4P-kzl">
+                                                <rect key="frame" x="138" y="0.0" width="236" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <state key="normal" title="  Show Result (10)" image="result">
+                                                    <color key="titleColor" red="0.37254901960784315" green="0.52156862745098043" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.37254901959999998" green="0.52156862749999999" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showResultAction:" destination="cvN-8Q-Tb7" eventType="touchUpInside" id="fSh-q4-3ld"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="5eF-4P-kzl" firstAttribute="height" secondItem="jrn-c0-tOh" secondAttribute="height" id="Azi-e4-BRR"/>
+                                            <constraint firstItem="MHM-6F-8BB" firstAttribute="height" secondItem="jrn-c0-tOh" secondAttribute="height" id="HpG-QZ-dpr"/>
+                                            <constraint firstAttribute="height" constant="50" id="XsP-wL-I8X"/>
+                                            <constraint firstItem="5eF-4P-kzl" firstAttribute="width" secondItem="MHM-6F-8BB" secondAttribute="width" multiplier="2" id="yNi-KT-0wq"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jrn-c0-tOh" secondAttribute="trailing" constant="20" id="Dqg-uR-hPR"/>
+                                    <constraint firstItem="jrn-c0-tOh" firstAttribute="leading" secondItem="54m-Ct-jcT" secondAttribute="leading" constant="20" id="MJv-KK-Zrx"/>
+                                    <constraint firstItem="TjX-ab-upS" firstAttribute="leading" secondItem="54m-Ct-jcT" secondAttribute="leading" id="NsW-Ev-o7K"/>
+                                    <constraint firstAttribute="trailing" secondItem="TjX-ab-upS" secondAttribute="trailing" id="OfY-dh-Jip"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="54m-Ct-jcT" firstAttribute="trailing" secondItem="vih-UR-8Iu" secondAttribute="trailing" id="REn-bx-ocA"/>
+                            <constraint firstItem="54m-Ct-jcT" firstAttribute="top" secondItem="vih-UR-8Iu" secondAttribute="top" id="X4a-ex-F96"/>
+                            <constraint firstItem="vih-UR-8Iu" firstAttribute="bottom" secondItem="54m-Ct-jcT" secondAttribute="bottom" constant="5" id="lKW-U5-0BK"/>
+                            <constraint firstItem="54m-Ct-jcT" firstAttribute="leading" secondItem="vih-UR-8Iu" secondAttribute="leading" id="wz1-mh-Xrw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vih-UR-8Iu"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultStackView" destination="jrn-c0-tOh" id="N3c-ew-Ihv"/>
+                        <outlet property="showResult" destination="5eF-4P-kzl" id="WKs-sn-FyJ"/>
+                        <outlet property="submitButton" destination="MHM-6F-8BB" id="55e-T4-0C3"/>
+                        <outlet property="tableView" destination="TjX-ab-upS" id="U35-aH-LMb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eXT-sm-lTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="922"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="result" width="32" height="32"/>
+    </resources>
+</document>

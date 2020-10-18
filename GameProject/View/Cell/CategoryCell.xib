@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="421" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="GameProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="450" height="421"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="307" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="GameProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="307"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="450" height="421"/>
+                <rect key="frame" x="0.0" y="0.0" width="450" height="307"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lịch Sử" translatesAutoresizingMaskIntoConstraints="NO" id="G41-QK-nFD">
-                        <rect key="frame" x="5" y="5" width="440" height="371"/>
+                        <rect key="frame" x="5" y="5" width="440" height="257"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="100"/>
@@ -25,7 +25,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxl-gP-At5">
-                        <rect key="frame" x="10" y="335" width="77" height="36"/>
+                        <rect key="frame" x="10" y="221" width="77" height="36"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RF7-eh-3QP">
                             <rect key="frame" x="0.0" y="0.0" width="77" height="36"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,18 +38,18 @@
                         </userDefinedRuntimeAttributes>
                     </visualEffectView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCQ-wD-u9Z">
-                        <rect key="frame" x="16.5" y="338" width="64" height="30"/>
+                        <rect key="frame" x="16.5" y="224" width="64" height="30"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                         <color key="textColor" red="0.96349339219999997" green="0.96788396899999996" blue="0.98105569950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0QM-b6-yAN">
-                        <rect key="frame" x="0.0" y="381" width="450" height="35"/>
+                        <rect key="frame" x="0.0" y="267" width="450" height="35"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhr-oj-Lp7">
                                 <rect key="frame" x="0.0" y="1.5" width="225" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="See" image="eye">
+                                <state key="normal" title="  See" image="eye">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -59,7 +59,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwB-jj-7FO">
                                 <rect key="frame" x="225" y="1.5" width="225" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Exam" image="test">
+                                <state key="normal" title="  Exam" image="test">
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -93,7 +93,7 @@
                 <outlet property="categoryImage" destination="G41-QK-nFD" id="KX8-Hm-kKh"/>
                 <outlet property="categoryLabel" destination="SCQ-wD-u9Z" id="are-Nr-gJq"/>
             </connections>
-            <point key="canvasLocation" x="226.08695652173915" y="262.83482142857144"/>
+            <point key="canvasLocation" x="242.0289855072464" y="213.95089285714286"/>
         </tableViewCell>
     </objects>
     <resources>

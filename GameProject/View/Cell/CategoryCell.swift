@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-final class CategoryCell: UITableViewCell {
+final class CategoryCell: UITableViewCell, NibReusable {
     
     // MARK: - Outlet
     @IBOutlet private weak var categoryImage: UIImageView!
@@ -45,11 +46,12 @@ final class CategoryCell: UITableViewCell {
             UIView.animate(withDuration: 0.3, animations: {
                 sender.transform = .identity
             }) { [weak self] (_) in
+                guard let self = self else { return }
                 switch sender.tag {
                 case 0:
-                    self?.choiseExamMode?(ExamMode.see)
+                    self.choiseExamMode?(ExamMode.see)
                 case 1:
-                    self?.choiseExamMode?(ExamMode.exam)
+                    self.choiseExamMode?(ExamMode.exam)
                 default:
                     print("Chọn sai")
                 }

@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseDatabase
 import GoogleSignIn
+import Reusable
+import Then
 
 final class CategoryViewController: UIViewController {
     
@@ -31,12 +33,11 @@ final class CategoryViewController: UIViewController {
         }
     }
     var dataSnapshotArray = [DataSnapshot]()
-    var examMode = ExamMode.see
     var modeButton = UIBarButtonItem()
     var modeImage = UIBarButtonItem()
+    var numberOfQuestion = 20
+    var timeToPlay = 10
     private let refreshControl = UIRefreshControl()
-    var numberOfQuestion = 5
-    var timeToPlay = 5
     
     //  MARK:   - Life Cycle
     override func viewDidLoad() {
@@ -56,16 +57,13 @@ final class CategoryViewController: UIViewController {
     
     //  MARK:   - Setup Data
     private func setupData() {
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         refreshControl.addTarget(self, action: #selector(refreshCategoryData), for: .allEvents)
-        tableView.dataSource = self
-        tableView.delegate = self
-        let nibName = UINib(nibName: Constant.cellID, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: Constant.cellID)
+        tableView.do {
+            $0.refreshControl = refreshControl
+            $0.dataSource = self
+            $0.delegate = self
+            $0.register(cellType: CategoryCell.self)
+        }
         fetchData()
     }
     
@@ -95,12 +93,10 @@ final class CategoryViewController: UIViewController {
     }
     
     @objc private func gotoSettingScreen() {
-        guard let settingScreen = storyboard?.instantiateViewController(identifier: "settingScreen") as? SettingViewController else {
-            return
-        }
+        let settingScreen = SettingTableViewController.instantiate()
         settingScreen.passData = {
             self.numberOfQuestion = $0
-            self.timeToPlay = $1
+//            self.timeToPlay = $1
         }
         navigationController?.pushViewController(settingScreen, animated: true)
     }
@@ -111,14 +107,14 @@ final class CategoryViewController: UIViewController {
     }
     
     private func gotoGameScreen(_ row: Int, mode: ExamMode) {
-        guard let gameScreen = storyboard?.instantiateViewController(identifier: "gameScreen") as? GameViewController else {
-            return
+        let gameScreen = GameViewController.instantiate()
+        gameScreen.do {
+            $0.categoryName = categoryArray[row]
+            $0.dataSnapShot = dataSnapshotArray[row]
+            $0.examMode = mode
+            $0.timeCouting = timeToPlay
+            $0.numberOfQuestion = numberOfQuestion
         }
-        gameScreen.category = categoryArray[row]
-        gameScreen.dataSnapShot = dataSnapshotArray[row]
-        gameScreen.examMode = mode
-        gameScreen.timeCouting = timeToPlay
-        gameScreen.numberOfQuestion = numberOfQuestion
         navigationController?.pushViewController(gameScreen, animated: true)
     }
 }
@@ -129,11 +125,10 @@ extension CategoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellID) as? CategoryCell else {
-            return UITableViewCell()
-        }
+        let cell: CategoryCell = tableView.dequeueReusableCell(for: indexPath)
         cell.choiseExamMode = { [weak self] in
-            self?.gotoGameScreen(indexPath.row, mode: $0)
+            guard let self = self else { return }
+            self.gotoGameScreen(indexPath.row, mode: $0)
         }
         let category = categoryArray[indexPath.row]
         cell.setContent(data: category)

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		10274CD125038D5E003D5442 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10274CD025038D5E003D5442 /* Question.swift */; };
+		109A409A253745BF00455975 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109A4099253745BF00455975 /* Settings.storyboard */; };
+		109A409C2537462500455975 /* Score.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109A409B2537462500455975 /* Score.storyboard */; };
+		109A409E2537465400455975 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109A409D2537465400455975 /* History.storyboard */; };
+		109A40A02537498600455975 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109A409F2537498600455975 /* SettingTableViewController.swift */; };
+		10FB9CC62535DFD000CF1BEC /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB9CC52535DFD000CF1BEC /* Storyboard.swift */; };
+		10FB9CC92535E2FF00CF1BEC /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FB9CC82535E2FF00CF1BEC /* Game.storyboard */; };
 		4C3CD66525086DB3007EE38C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CD66425086DB3007EE38C /* UIView+.swift */; };
 		4C5F91BF2500CBDE008E73C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91BE2500CBDE008E73C0 /* AppDelegate.swift */; };
 		4C5F91C12500CBDE008E73C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F91C02500CBDE008E73C0 /* SceneDelegate.swift */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		10274CD025038D5E003D5442 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		109A4099253745BF00455975 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		109A409B2537462500455975 /* Score.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Score.storyboard; sourceTree = "<group>"; };
+		109A409D2537465400455975 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		109A409F2537498600455975 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		10FB9CC52535DFD000CF1BEC /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		10FB9CC82535E2FF00CF1BEC /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		47680056CF5571CB3105F1FE /* Pods-GameProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameProject.release.xcconfig"; path = "Target Support Files/Pods-GameProject/Pods-GameProject.release.xcconfig"; sourceTree = "<group>"; };
 		4C3CD66425086DB3007EE38C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		4C5F91BB2500CBDE008E73C0 /* GameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +104,43 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		10D15009253891FF006158AA /* History */ = {
+			isa = PBXGroup;
+			children = (
+				109A409D2537465400455975 /* History.storyboard */,
+				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		10D1500A25389212006158AA /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				109A409B2537462500455975 /* Score.storyboard */,
+				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
+			);
+			path = Score;
+			sourceTree = "<group>";
+		};
+		10D1500B25389234006158AA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				10FB9CC82535E2FF00CF1BEC /* Game.storyboard */,
+				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		10D1500C25389249006158AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4C603354250B4663001F4ECF /* SettingViewController.swift */,
+				109A409F2537498600455975 /* SettingTableViewController.swift */,
+				109A4099253745BF00455975 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		2615D3ACFD310EC2A0D4A72C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +182,8 @@
 				4C5F91D32500D26F008E73C0 /* View */,
 				4C5F91D22500D262008E73C0 /* Controller */,
 				4C5F91DE2500F527008E73C0 /* Unit */,
-				4C5F91D52500D27B008E73C0 /* Support */,
 				4C3CD66325086D8D007EE38C /* Extension */,
+				4C5F91D52500D27B008E73C0 /* Support */,
 				4C5F91CC2500CBE0008E73C0 /* Info.plist */,
 			);
 			path = GameProject;
@@ -143,12 +192,12 @@
 		4C5F91D22500D262008E73C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4C603354250B4663001F4ECF /* SettingViewController.swift */,
+				10D1500C25389249006158AA /* Settings */,
+				10D1500B25389234006158AA /* Game */,
+				10D1500A25389212006158AA /* Score */,
+				10D15009253891FF006158AA /* History */,
 				4C5F91C22500CBDE008E73C0 /* LoginViewController.swift */,
 				4C5F91D62500D344008E73C0 /* CategoryViewController.swift */,
-				4C5F91D82500D35A008E73C0 /* GameViewController.swift */,
-				4C5F91DA2500D368008E73C0 /* ScoreViewController.swift */,
-				9B4EB0B42508749E009EBA38 /* HistoryViewController.swift */,
 				4C603352250B2DF4001F4ECF /* TableViewController.swift */,
 			);
 			path = Controller;
@@ -181,6 +230,7 @@
 				4C5F91DF2500F570008E73C0 /* Firebase.swift */,
 				4CD5A42025077C05001180CB /* ExamMode.swift */,
 				4CF3EE0E2509FF6000B33183 /* Result.swift */,
+				10FB9CC52535DFD000CF1BEC /* Storyboard.swift */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -268,11 +318,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FB9CC92535E2FF00CF1BEC /* Game.storyboard in Resources */,
 				4C5F91CB2500CBE0008E73C0 /* LaunchScreen.storyboard in Resources */,
 				4CD5A41B25072DC6001180CB /* CategoryCell.xib in Resources */,
+				109A409E2537465400455975 /* History.storyboard in Resources */,
+				109A409C2537462500455975 /* Score.storyboard in Resources */,
 				4C5F91DD2500DB6B008E73C0 /* GoogleService-Info.plist in Resources */,
 				4CC113062504FE0C005E139B /* AnswerTableViewCell.xib in Resources */,
 				4C5F91C82500CBE0008E73C0 /* Assets.xcassets in Resources */,
+				109A409A253745BF00455975 /* Settings.storyboard in Resources */,
 				9B4EB0B9250875CE009EBA38 /* HistoryTableViewCell.xib in Resources */,
 				4C5F91C62500CBDE008E73C0 /* Main.storyboard in Resources */,
 			);
@@ -344,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109A40A02537498600455975 /* SettingTableViewController.swift in Sources */,
 				4C5F91D92500D35A008E73C0 /* GameViewController.swift in Sources */,
 				10274CD125038D5E003D5442 /* Question.swift in Sources */,
 				9B4EB0B8250875CE009EBA38 /* HistoryTableViewCell.swift in Sources */,
@@ -359,6 +414,7 @@
 				4C5F91E02500F570008E73C0 /* Firebase.swift in Sources */,
 				4C5F91DB2500D368008E73C0 /* ScoreViewController.swift in Sources */,
 				4C3CD66525086DB3007EE38C /* UIView+.swift in Sources */,
+				10FB9CC62535DFD000CF1BEC /* Storyboard.swift in Sources */,
 				4CF3EE0F2509FF6000B33183 /* Result.swift in Sources */,
 				4C603355250B4663001F4ECF /* SettingViewController.swift in Sources */,
 				4CD5A42125077C05001180CB /* ExamMode.swift in Sources */,
